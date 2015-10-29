@@ -59,11 +59,10 @@ body{
 /*******************************************
    Style menu for larger screens
 
-   Using 650px (130px each * 5 items), but ems
-   or other values could be used depending on other factors
+   Notar 650px (145px each * 5 items)
 ********************************************/
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 725px) {
   .nav li {
     width: 145px;
     border-bottom: none;
