@@ -59,10 +59,10 @@ body{
 /*******************************************
    Style menu for larger screens
 
-   Notar 650px (145px each * 5 items)
+   Notar 605px ((145px fyrir * 3 items) + 170px fyrir large-column)
 ********************************************/
 
-@media screen and (min-width: 725px) {
+@media screen and (min-width: 605px) {
   .nav li {
     width: 145px;
     border-bottom: none;
