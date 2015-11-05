@@ -77,7 +77,6 @@ body{
     background-color: #3f75a2;
 }
 
-
 @media (max-width: 47.999em) {
 
     .custom-menu-3 {
@@ -105,6 +104,11 @@ body{
 .main {
     padding: 2em;
     color: black;
+    text-align: center;
+}
+.font-ubuntu{
+	font-family: "Ubuntu";
+	font-size: 25px;
 }
 
 /*Banner*/
@@ -148,6 +152,42 @@ body{
 
 /**/
 
+@media(max-width: 906px){
+    #nyrReikningur{
+        width: 100%;
+    }
+    #skylmalar{
+        width: 100%;
+    }
+}
+
+/**/
+
 #notification{
     color: red;
+}
+
+.circle{
+	margin: auto;
+    width: 60%;
+
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	background-color: #325e82;
+
+	-webkit-transition: background 0.285s linear;
+        -moz-transition: background 0.285s linear;
+        -ms-transition: background 0.285s linear;
+        -o-transition: background 0.285s linear;
+        transition: background 0.285s linear;
+}
+
+.circle:hover{
+	background-color: #5a8bb4;
+}
+.circle-icon{
+	width: 60px;
+	height: 60px;
+	padding-top: 27px;
 }
