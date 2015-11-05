@@ -18,6 +18,7 @@ $('#cb').on('click', function(){
         }else{
             $('button').prop('disabled', true);
             $('#notification').fadeIn().append("Lykilorðið þarf að hafa amk 1 tölustaf, 1 stóran staf, 1 lítinn staf og 6 stafir langt");
+            $('#cb').prop('checked', false);
         }
     }else{
         $('button').prop('disabled', true);
