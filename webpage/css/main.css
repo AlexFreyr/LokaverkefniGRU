@@ -104,7 +104,9 @@ body{
 .main {
     padding: 2em;
     color: black;
-    text-align: center;
+}
+.circle-content{
+	text-align: center;
 }
 .font-ubuntu{
 	font-family: "Ubuntu";
