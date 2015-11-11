@@ -53,7 +53,11 @@
         <div class="main pure-g">
             <div class="pure-u-1-2">
                 <h2>Welcomen Til danske Banke</h2>
-               
+                    <?php echo $_POST["Nafn"]; ?><br>
+                    <?php echo $_POST["netfang"]; ?><br>
+                    <?php echo  $_POST["kennitala"]; ?><br>
+                    <?php echo  $_POST["Land"]; ?><br>
+                    <?php echo  $_POST["kyn"]; ?><br>
                      <?php
                         include "dbcon.php";
 
@@ -62,11 +66,11 @@
 
                       try{
                             $Nafn = $_POST["Nafn"];
-                            $netfang = $_POST['Netfang'];
-                            $kt = $_POST['Kennitala'];
+                            $netfang = $_POST['netfang'];
+                            $kt = $_POST['kennitala'];
                             $Land = $_POST['Land'];
-                            $kyn = $_POST['Kyn'];
-                            $lykilord = $_POST['Lykilord'];
+                            $kyn = $_POST['kyn'];
+                            $lykilord = $_POST['lykilord'];
                         } 
 
                         catch (Exception $e) {
@@ -88,7 +92,7 @@
                         catch (Exception $e) {
                         echo "Error fetching: " . $e->getMessage();
                            }
-                           echo " Welkomin í Áríon Banka"
+                           echo "Þú ert skráður á atburðinn";
                         ?>         
                 
             </div>

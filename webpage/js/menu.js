@@ -20,7 +20,7 @@ function toggleMenu() {
     }
     menu.classList.toggle('open');
     document.getElementById('toggle').classList.toggle('x');
-    $('#toggle').classList.toggle('x');
+    
 };
 
 function closeMenu() {

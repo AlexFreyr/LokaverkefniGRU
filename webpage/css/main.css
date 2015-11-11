@@ -15,13 +15,9 @@ body{
     transition: height 0.5s;
 }
 
-.custom-wrapper.open {
-    height: 14em;
-}
+.custom-wrapper.open { height: 12em; }
 
-.custom-menu-3 {
-    text-align: right;
-}
+.custom-menu-3 { text-align: right; }
 
 .custom-toggle {
     width: 34px;
@@ -73,9 +69,7 @@ body{
     text-decoration: none;
     color: white;
 }
-#selected{
-    background-color: #3f75a2;
-}
+#selected{ background-color: #3f75a2; }
 
 @media (max-width: 47.999em) {
 
@@ -152,22 +146,16 @@ body{
     }
 }
 
-/**/
+/*490px - 480px*/
 
 @media(max-width: 906px){
-    #nyrReikningur{
-        width: 100%;
-    }
-    #skylmalar{
-        width: 100%;
-    }
+    #nyrReikningur{ width: 100%; padding-left: 5px;}
+    #login{ width: 100%; padding-left: 5px;}
 }
 
 /**/
 
-#notification{
-    color: red;
-}
+#notification{ color: red; }
 
 .circle{
 	margin: auto;
@@ -179,17 +167,107 @@ body{
 	background-color: #325e82;
 
 	-webkit-transition: background 0.285s linear;
-        -moz-transition: background 0.285s linear;
-        -ms-transition: background 0.285s linear;
-        -o-transition: background 0.285s linear;
-        transition: background 0.285s linear;
+    -moz-transition: background 0.285s linear;
+    -ms-transition: background 0.285s linear;
+    -o-transition: background 0.285s linear;
+    transition: background 0.285s linear;
 }
 
-.circle:hover{
-	background-color: #5a8bb4;
-}
+.circle:hover{ background-color: #5a8bb4; }
+
 .circle-icon{
 	width: 60px;
 	height: 60px;
 	padding-top: 27px;
+}
+
+/*Can propably merge with top media*/
+@media(max-width: 479px){
+    .circle{
+        width: 60px;
+        height: 60px;
+    }
+    .circle-icon{
+        width: 25px;
+        height: 25px;
+        padding-top: 15px;
+    }
+    .font-ubuntu{
+        font-size: 18px;
+    }
+    .banner .banner-head{
+        font-size: 2.5em;
+    }
+    .main{
+        padding: 0;
+        min-height: 100%;
+        position: relative;
+    }
+
+    /*Fix the table when media is that small*/
+    table{
+        overflow-x: auto;
+        font-size: 12px;
+    }
+}
+
+.i-content{
+    padding-top: 2em;
+    font-size: 17px;
+    text-align: center;
+}
+th{
+    padding-right: 25px;
+}
+table{
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*Fix the table when it goes offscreen*/
+@media(max-width: 1130px){
+    .gengi{
+        width: 100%;
+    }
+    .frettir{
+        width: 100%;
+        margin: 5px;
+    }
+    table{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        overflow-x: scroll;
+    }
+    table tr input{
+        width: 100%;
+    }
+}
+#gengi-note{
+    text-align: center;
+    font-size: 15px;
+}
+
+/*Fréttir*/
+
+.headline{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+.frett{
+    text-align: left;
+}
+.frett-content{
+    font-size: 16px;
+}
+.frett-link{
+    color: black;
+    text-decoration: underline;
+}
+.frett-link:hover{
+    color: #434040;
+    text-decoration: none;
 }
