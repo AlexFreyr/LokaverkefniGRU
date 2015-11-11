@@ -1,105 +1,273 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 
 body{
-	font-family: "Roboto", "Ubuntu", Arial, sans-serif;
-	padding: 0;
-	margin: 0;
+    font-family: "Gisha", "Ubuntu", Arial, sans-serif;
 }
 
-/*******************************
-	Header
-*******************************/
-.logo h2{
-	margin: 0;
-	padding: 0;
-}
-/*******************************
-	Navigation bar fyrir vefsíðuna
-*******************************/
-
-.nav ul {
-  list-style: none;
-  background-color: #444;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+.custom-wrapper {
+    background-color: #386991;
+    -webkit-font-smoothing: antialiased;
+    height: 2.1em;
+    overflow: hidden;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    transition: height 0.5s;
 }
 
-.nav li {
-  font-size: 1.2em;
-  line-height: 40px;
-  text-align: left;
-}
+.custom-wrapper.open { height: 12em; }
 
-.nav a {
-  text-decoration: none;
-  color: #fff;
-  display: block;
-  padding-left: 15px;
-  border-bottom: 1px solid #888;
-  transition: .3s background-color;
-}
+.custom-menu-3 { text-align: right; }
 
-.nav a:hover {
-  background-color: #005f5f;
-}
-
-.nav a.active {
-  background-color: #aaa;
-  color: #444;
-  cursor: default;
-}
-
-/* Sub Menus */
-.nav li li {
-  font-size: .8em;
-}
-
-/*******************************************
-   Style menu for larger screens
-
-   Notar 605px ((145px fyrir * 3 items) + 170px fyrir large-column)
-********************************************/
-
-@media screen and (min-width: 605px) {
-  .nav li {
-    width: 145px;
-    border-bottom: none;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.4em;
-    display: inline-block;
-    margin-right: -4px;
-  }
-
-  .nav a {
-    border-bottom: none;
-  }
-
-  .nav > ul > li {
-    text-align: center;
-  }
-
-  .nav > ul > li > a {
-    padding-left: 0;
-  }
-
-  /* Sub Menus */
-  .nav li ul {
+.custom-toggle {
+    width: 34px;
+    height: 34px;
+    display: block;
     position: absolute;
+    top: 0;
+    right: 0;
     display: none;
-    width: inherit;
-  }
+}
 
-  .nav li:hover ul {
+.custom-toggle .bar {
+    background-color: white;
     display: block;
-  }
+    width: 20px;
+    height: 2px;
+    border-radius: 100px;
+    position: absolute;
+    top: 18px;
+    right: 7px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
 
-  .nav li ul li {
-    display: block;
-  }
-  #large-column{
-  	width: 170px;
-  }
+.custom-toggle .bar:first-child {
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+}
+
+.custom-toggle.x .bar {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.custom-toggle.x .bar:first-child {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.custom-item-selected{
+    text-decoration: none;
+    color: white;
+}
+#selected{ background-color: #3f75a2; }
+
+@media (max-width: 47.999em) {
+
+    .custom-menu-3 {
+        text-align: left;
+    }
+
+    .custom-toggle {
+        display: block;
+    }
+}
+
+/**/
+.pure-menu-link{
+    color: white;
+}
+.pure-menu-heading{
+    color: white;
+}
+.pure-menu-link:hover{
+    background-color: #3f75a2;
+}
+.pure-g [class *="pure-u"]{
+    font-family: "Gisha", "Ubuntu", sans-serif;
+}
+.main {
+    padding: 2em;
+    color: black;
+}
+.circle-content{
+	text-align: center;
+}
+.font-ubuntu{
+	font-family: "Ubuntu";
+	font-size: 25px;
+}
+
+/*Banner*/
+
+.banner{
+    background: transparent url('http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg') 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
+}
+
+@media(min-width: 480px){
+    .banner{
+        height: 400px;
+    }
+}
+
+.banner-head{
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 0;
+    font-size: 2em;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 1px 1px black;
+}
+
+@media(min-width: 480px){
+    .banner-head{
+        font-size: 3em;
+    }
+}
+@media(min-width: 767px){
+    .banner-head{
+        font-size: 4em;
+    }
+}
+
+/*490px - 480px*/
+
+@media(max-width: 906px){
+    #nyrReikningur{ width: 100%; padding-left: 5px;}
+    #login{ width: 100%; padding-left: 5px;}
+}
+
+/**/
+
+#notification{ color: red; }
+
+.circle{
+	margin: auto;
+    width: 60%;
+
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	background-color: #325e82;
+
+	-webkit-transition: background 0.285s linear;
+    -moz-transition: background 0.285s linear;
+    -ms-transition: background 0.285s linear;
+    -o-transition: background 0.285s linear;
+    transition: background 0.285s linear;
+}
+
+.circle:hover{ background-color: #5a8bb4; }
+
+.circle-icon{
+	width: 60px;
+	height: 60px;
+	padding-top: 27px;
+}
+
+/*Can propably merge with top media*/
+@media(max-width: 479px){
+    .circle{
+        width: 60px;
+        height: 60px;
+    }
+    .circle-icon{
+        width: 25px;
+        height: 25px;
+        padding-top: 15px;
+    }
+    .font-ubuntu{
+        font-size: 18px;
+    }
+    .banner .banner-head{
+        font-size: 2.5em;
+    }
+    .main{
+        padding: 0;
+        min-height: 100%;
+        position: relative;
+    }
+
+    /*Fix the table when media is that small*/
+    table{
+        overflow-x: auto;
+        font-size: 12px;
+    }
+}
+
+.i-content{
+    padding-top: 2em;
+    font-size: 17px;
+    text-align: center;
+}
+th{
+    padding-right: 25px;
+}
+table{
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*Fix the table when it goes offscreen*/
+@media(max-width: 1130px){
+    .gengi{
+        width: 100%;
+    }
+    .frettir{
+        width: 100%;
+        margin: 5px;
+    }
+    table{
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        overflow-x: scroll;
+    }
+    table tr input{
+        width: 100%;
+    }
+}
+#gengi-note{
+    text-align: center;
+    font-size: 15px;
+}
+
+/*Fréttir*/
+
+.headline{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+.frett{
+    text-align: left;
+}
+.frett-content{
+    font-size: 16px;
+}
+.frett-link{
+    color: black;
+    text-decoration: underline;
+}
+.frett-link:hover{
+    color: #434040;
+    text-decoration: none;
 }
