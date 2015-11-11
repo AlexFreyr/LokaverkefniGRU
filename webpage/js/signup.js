@@ -49,10 +49,10 @@ $('#lykilord, #land, #netfang, #kennitala, #nafn').on('keydown', function(){
 function check(type) {
     var empty = 0;
     $('input[type=' + type + ']').each(function(){
-       if (this.value == "") {
-           empty++;
-           $("#error").show('slow');
-       } 
+        if (this.value == "" && $(this).attr("id") != "login-nafn" && $(this).attr("id") != "login-lykilord") {
+            empty++;
+            $("#error").show('slow');
+        } 
     })
     return empty;
 }
