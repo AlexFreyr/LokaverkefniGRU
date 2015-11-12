@@ -49,11 +49,11 @@ $('#lykilord, #land, #netfang, #kennitala, #nafn').on('keydown', function(){
 function check(type) {
     var empty = 0;
     $('input[type=' + type + ']').each(function(){
-        if (this.value == "" && $(this).attr("id") != "login-nafn" && $(this).attr("id") != "login-lykilord") {
+        if (this.value == "" && $(this).attr("id") != "login-kt" && $(this).attr("id") != "login-lykilord") {
             empty++;
             $("#error").show('slow');
         } 
-    })
+    });
     return empty;
 }
 
@@ -71,7 +71,3 @@ function checkKennitala(kennitala){
 $(document).ready(function() {
      $('#submit').prop('disabled', true);
  });
-
-/*
-Alexander Freyr
-*/
