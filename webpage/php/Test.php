@@ -12,7 +12,7 @@
         <!--[if lt IE 9]>
             <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
         <![endif]-->
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
 
     </head>
     <body>
@@ -53,7 +53,7 @@
         <div class="main pure-g">
             <div class="pure-u-1-2">
                 <h2>Welcomen Til danske Banke</h2>
-                    <?php echo $_POST["Nafn"]; ?><br>
+                    <?php echo $_POST["nafn"]; ?><br>
                     <?php echo $_POST["netfang"]; ?><br>
                     <?php echo  $_POST["kennitala"]; ?><br>
                     <?php echo  $_POST["Land"]; ?><br>
@@ -65,7 +65,7 @@
 
 
                       try{
-                            $Nafn = $_POST["Nafn"];
+                            $Nafn = $_POST["nafn"];
                             $netfang = $_POST['netfang'];
                             $kt = $_POST['kennitala'];
                             $Land = $_POST['Land'];
@@ -76,23 +76,24 @@
                         catch (Exception $e) {
                              echo "Error fetching: " . $e->getMessage();
                         }
-                        $sql = 'INSERT INTO notandi(Nafn,kennitala,kyn,Land,lykilord,netfang)
-                                VALUES(:Nafn,:kennitala,:kyn,:Land,:lykilord,:netfang)';
+                        $sql = 'INSERT INTO notandi(nafn,kennitala,kyn,Land,lykilord,netfang)
+                                VALUES(:nafn,:kennitala,:kyn,:Land,:lykilord,:netfang)';
                         $q = $connection->prepare($sql);
                         try{
-                            $q->bindValue(':Nafn',$Nafn);
+                            $q->bindValue(':nafn',$Nafn);
                             $q->bindValue(':kennitala',$kt);
                             $q->bindValue(':kyn',$kyn);
                             $q->bindValue(':Land',$Land);
                             $q->bindValue(':lykilord',$lykilord);
                             $q->bindValue(':netfang',$netfang);
                             $q->execute();
+                              echo "Þú ert skráður á atburðinn";
                         } 
 
                         catch (Exception $e) {
                         echo "Error fetching: " . $e->getMessage();
                            }
-                           echo "Þú ert skráður á atburðinn";
+                         
                         ?>         
                 
             </div>
