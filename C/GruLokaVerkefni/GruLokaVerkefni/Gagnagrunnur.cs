@@ -27,7 +27,7 @@ namespace GruLokaVerkefni
 
         public void TengingVidGagnagrunn()
         {
-            server = "10.200.10.24";
+            server = "tsuts.tskoli.is";
             database = "2408982179_grulokaverk";
             uid = "2408982179";
             password = "mypassword";
