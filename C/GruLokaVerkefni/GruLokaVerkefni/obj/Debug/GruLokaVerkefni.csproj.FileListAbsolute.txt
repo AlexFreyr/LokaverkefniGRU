@@ -1,0 +1,10 @@
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe.config
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csprojResolveAssemblyReference.cache
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.pdb
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\MySql.Data.dll
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
+\\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
