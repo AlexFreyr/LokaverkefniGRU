@@ -52,7 +52,8 @@
             <h2>Nýr aðgangur</h2>
                 <p>Stofanðu reikning með okkur, það er fljótt einfalt og þægilegt</p>
 
-                <form class="pure-form pure-form-aligned" action="php/test.php" method="post">
+                <!--PHP breytur-->
+                <form class="pure-form pure-form-aligned" action="php/nyrAdgangur.php" method="POST">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="nafn">Nafn</label>
@@ -111,7 +112,9 @@
             </div>
             <div class="pure-u-1-2" id="login">
                 <h2>Skráðu þig inn</h2>
-                <form class="pure-form pure-form-aligned">
+
+                <!--PHP breytur-->
+                <form class="pure-form pure-form-aligned" method="POST" action="php/authentication.php">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="nafn">Kennitala</label>
@@ -122,7 +125,7 @@
                             <input id="login-lykilord" type="password" placeholder="Lykilorð" name="login-lykilord">
                         </div>
                         <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary">Skrá inn</button>
+                            <button type="submit" class="pure-button pure-button-primary" id="submit">Skrá inn</button>
                         </div>
                     </fieldset>
                 </form>

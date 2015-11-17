@@ -1,0 +1,49 @@
+notandi
+ kennitala varchar(11)
+ nafn varchar(75)
+ netfang varchar(50)
+ kyn varchar(9)
+ land varchar(75)
+ lykilord varchar(35)
+ id(5)
+
+reikningar
+ id(5)
+ id_skuldabref(5)
+ id_notandi(5) references notandi.ID
+
+skuldabref
+ id(5) references reikningar.id_skuldabref
+ nafn varchar(75)
+ vextir(5)
+ lanstimi date
+
+innistaeda
+ id(5) references reikningar.id
+ id_reikningur(5)
+ innistaeda(10)
+ skuldir(10)
+
+-----
+
+CREATE TABLE reikningar(
+id INT( 5 ) PRIMARY KEY ,
+id_skuldabref INT( 5 ) ,
+id_notandi INT( 5 ) REFERENCES notandi( ID )
+);
+
+CREATE TABLE skuldabref(
+ID INT( 5 ) PRIMARY KEY REFERENCES reikningar( id_skuldabref ) ,
+nafn VARCHAR( 75 ) ,
+vextir DOUBLE,
+lanstimi DATE
+);
+
+CREATE TABLE innistaeda(
+ID INT( 5 ) PRIMARY KEY ,
+id_reikningur INT( 5 ) REFERENCES reikningar( ID ) ,
+innistaeda INT( 5 ) ,
+skuldir INT( 10 )
+)
+
+

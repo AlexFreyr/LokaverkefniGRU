@@ -26,24 +26,23 @@
         <div class="custom-wrapper pure-g" id="menu">
             <div class="pure-u-1 pure-u-md-1-3">
                 <div class="pure-menu">
-                    <a href="index.html" class="pure-menu-heading custom-brand">Áríon banki</a>
+                    <a href="../index.html" class="pure-menu-heading custom-brand">Áríon banki</a>
                     <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
                 </div>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <div class="pure-menu pure-menu-horizontal custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Heim</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Um okkur</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Hafa samband</a></li>
+                        <li class="pure-menu-item"><a href="../index.html" class="pure-menu-link">Heim</a></li>
+                        <li class="pure-menu-item"><a href="../umokkur.html" class="pure-menu-link">Um okkur</a></li>
+                        <li class="pure-menu-item"><a href="../hafasamband.html" class="pure-menu-link">Hafa samband</a></li>
                     </ul>
                 </div>
             </div>
             <div class="pure-u-1 pure-u-md-1-3">
                 <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Skrá inn</a></li>
-                        <li class="pure-menu-item"><a href="nyradgangur.html" class="pure-menu-link" id="selected">Nýr aðgangur</a></li>
+                        <li class="pure-menu-item"><?php echo "<p>Þú ert skráð/ur inn sem ". $_POST["nafn"] ."</p>";?></li>
                     </ul>
                 </div>
             </div>
@@ -52,7 +51,7 @@
         <script type="text/javascript" src="js/menu.js"></script>
         <div class="main pure-g">
             <div class="pure-u-1-2">
-                <h2>Welcomen Til danske Banke</h2>
+                <h2>Velkomin og takk fyrir að gera nýjann aðgang hjá Áríon banka</h2>
                     <?php echo $_POST["nafn"]; ?><br>
                     <?php echo $_POST["netfang"]; ?><br>
                     <?php echo  $_POST["kennitala"]; ?><br>
@@ -60,22 +59,17 @@
                     <?php echo  $_POST["kyn"]; ?><br>
                      <?php
                         include "dbcon.php";
-
-
-
-
-                      try{
+                        try{
                             $Nafn = $_POST["nafn"];
                             $netfang = $_POST['netfang'];
                             $kt = $_POST['kennitala'];
                             $Land = $_POST['Land'];
                             $kyn = $_POST['kyn'];
                             $lykilord = $_POST['lykilord'];
-                        } 
-
-                        catch (Exception $e) {
+                        } catch (Exception $e) {
                              echo "Error fetching: " . $e->getMessage();
                         }
+
                         $sql = 'INSERT INTO notandi(nafn,kennitala,kyn,Land,lykilord,netfang)
                                 VALUES(:nafn,:kennitala,:kyn,:Land,:lykilord,:netfang)';
                         $q = $connection->prepare($sql);
