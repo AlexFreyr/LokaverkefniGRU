@@ -1,8 +1,8 @@
 <?php
 $servername = "tsuts.tskoli.is";
-$username = "2408982179";
+$username = "GRU_H7";
 $password = "mypassword";
-$dbname = "2408982179_grulokaverk";
+$dbname = "gru_h7_grulokaverk";
 
 try {
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

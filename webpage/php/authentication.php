@@ -9,15 +9,12 @@
         include "dbcon.php";
 
         $kt = $_POST['login-kt'];
-        $lykill = $_POST['login-lykilord'];
+        $lykill = md5($_POST['login-lykilord']);
 
         $command = "SELECT nafn FROM notandi WHERE kennitala = '$kt' AND lykilord = '$lykill'";
-        try
-        {
+        try{
             $result = $connection->query($command);
-        }
-        catch (PDOException $ex)
-        {
+        } catch (PDOException $ex) {
             echo "Error fetching record: " . $ex->getMessage();
         }
         while($row = $result->fetch())
@@ -26,7 +23,7 @@
         }
 
         if(empty($nafn)){
-            echo "Array is empty";
+            echo "This user doesn't exist";
         }else{
             echo $nafn[0][0];
         }

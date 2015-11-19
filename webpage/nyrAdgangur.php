@@ -102,9 +102,9 @@
                         <div class="pure-controls">
                             <label for="cb" class="pure-checkbox">
                                 <input id="cb" type="checkbox"> Ég hef lesið og samþykki skilmála Áríon banka
-                            </label>
+                            </label> 
 
-                            <button type="submit" class="pure-button pure-button-primary" id="submit">Submit</button>
+                            <button type="submit" class="pure-button pure-button-primary" id="signup-submit">Submit</button>
                             <p id="notification"></p>
                         </div>
                     </fieldset>
@@ -125,8 +125,9 @@
                             <input id="login-lykilord" type="password" placeholder="Lykilorð" name="login-lykilord">
                         </div>
                         <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary" id="submit">Skrá inn</button>
+                            <button type="submit" class="pure-button pure-button-primary" id="login-submit">Skrá inn</button>
                         </div>
+                        <p id="login-notification"></p>
                     </fieldset>
                 </form>
             </div>

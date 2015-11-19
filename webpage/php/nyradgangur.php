@@ -65,7 +65,7 @@
                             $kt = $_POST['kennitala'];
                             $Land = $_POST['Land'];
                             $kyn = $_POST['kyn'];
-                            $lykilord = $_POST['lykilord'];
+                            $lykilord = md5($_POST['lykilord']);
                         } catch (Exception $e) {
                              echo "Error fetching: " . $e->getMessage();
                         }
