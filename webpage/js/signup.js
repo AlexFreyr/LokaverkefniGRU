@@ -9,15 +9,17 @@ $('#cb').on('click', function(){
     if(s == 0){
         if(checkKennitala($('#kennitala').val()) == true){
             if(checkLykilord($('#lykilord').val()) == true){
-                if($('#cb').is(':checked')){
-                    $('#submit').prop('disabled', false); //Opnar takkann
-                    once = true;
-                }else{
-                    $("#notification").fadeIn().append("Þú þarft að lesa og samþykkja skilmálana áður en þú stofnar reikning");
-                    $('#submit').prop('disabled', true);
+                if (checkKtInUse($('#kt-alert').text()) != true){
+                    if($('#cb').is(':checked')){
+                        $('#signup-submit').prop('disabled', false); //Opnar takkann
+                        once = true;
+                    }else{
+                        $("#notification").fadeIn().append("Þú þarft að lesa og samþykkja skilmálana áður en þú stofnar reikning");
+                        $('#signup-submit').prop('disabled', true);
+                    }
                 }
             }else{
-                $('#submit').prop('disabled', true);
+                $('#signup-submit').prop('disabled', true);
                 $('#notification').append("Lykilorðið þarf að hafa amk 1 tölustaf, 1 stóran staf, 1 lítinn staf og 6 stafir langt");
                 $('#cb').prop('checked', false);
             }
@@ -25,7 +27,7 @@ $('#cb').on('click', function(){
             $("#notification").append("Röng kennitala");
         }
     }else{
-        $('#submit').prop('disabled', true);
+        $('#signup-submit').prop('disabled', true);
         if (s == 1){
             $("#notification").append("Vantar að fylla út " + s + " reit");    
         }else{
@@ -34,15 +36,10 @@ $('#cb').on('click', function(){
     }
 });
 
+//Ef notandi hefur samþykkt skilmálana og skrifar eithvað í textboxin mun það 'unchecka' checkboxið
 $('#lykilord, #land, #netfang, #kennitala, #nafn').on('keydown', function(){
-    var t = check("text");
-    var p = check("password");
-    var s = t + p;
-    if(once == true && s == 0){
-        $('#cb').click();
-        $('#cb').prop('checked', false);
-        once = false;
-    }
+    $('#cb').prop('checked', false);
+    $('#signup-submit').prop('disabled', true);
 });
 
 //Gáir hvort það sé ekki örugglega texti í textboxunum.
@@ -67,7 +64,15 @@ function checkKennitala(kennitala){
     var re = /(?=.*\d).{10}/;
     return re.test(kennitala);
 }
+function checkKtInUse(text){
+    //Gáir hvort texti sé í kt-alert
+    if(text == "Kennitalan er nú þegar í notkun"){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 $(document).ready(function() {
-     $('#submit').prop('disabled', true);
+     $('#signup-submit').prop('disabled', true);
  });

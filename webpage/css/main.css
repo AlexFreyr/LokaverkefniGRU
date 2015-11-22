@@ -155,7 +155,7 @@ body{
 
 /**/
 
-#notification{ color: red; }
+#notification, #kt-alert{ color: red; }
 
 .circle{
 	margin: auto;

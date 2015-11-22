@@ -70,8 +70,8 @@
                              echo "Error fetching: " . $e->getMessage();
                         }
 
-                        $sql = 'INSERT INTO notandi(nafn,kennitala,kyn,Land,lykilord,netfang)
-                                VALUES(:nafn,:kennitala,:kyn,:Land,:lykilord,:netfang)';
+                        $sql = 'INSERT INTO notandi(nafn, kennitala, kyn, Land, lykilord, netfang)
+                                VALUES(:nafn, :kennitala, :kyn, :Land, :lykilord, :netfang)';
                         $q = $connection->prepare($sql);
                         try{
                             $q->bindValue(':nafn',$Nafn);
@@ -81,15 +81,11 @@
                             $q->bindValue(':lykilord',$lykilord);
                             $q->bindValue(':netfang',$netfang);
                             $q->execute();
-                              echo "Þú ert skráður á atburðinn";
                         } 
-
                         catch (Exception $e) {
-                        echo "Error fetching: " . $e->getMessage();
-                           }
-                         
-                        ?>         
-                
+                            echo "Error fetching: " . $e->getMessage();
+                        }
+                        ?>
             </div>
             <div class="pure-u-1-2">
                 <p>Skylmálar Áríon banka: </p>
