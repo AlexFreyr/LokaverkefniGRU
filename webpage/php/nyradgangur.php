@@ -85,6 +85,9 @@
                         catch (Exception $e) {
                             echo "Error fetching: " . $e->getMessage();
                         }
+
+                        #Setja inn reikningar þegar notandi býr til nýjann aðgang.
+                        #$sql = 'INSERT INTO reikningar(id, id_notandi)'
                         ?>
             </div>
             <div class="pure-u-1-2">
