@@ -55,39 +55,66 @@
                     <?php echo $_POST["nafn"]; ?><br>
                     <?php echo $_POST["netfang"]; ?><br>
                     <?php echo  $_POST["kennitala"]; ?><br>
-                    <?php echo  $_POST["Land"]; ?><br>
+                    <?php echo  $_POST["land"]; ?><br>
                     <?php echo  $_POST["kyn"]; ?><br>
                      <?php
                         include "dbcon.php";
                         try{
-                            $Nafn = $_POST["nafn"];
-                            $netfang = $_POST['netfang'];
                             $kt = $_POST['kennitala'];
-                            $Land = $_POST['Land'];
+                            $nafn = $_POST["nafn"];
+                            $netfang = $_POST['netfang'];
                             $kyn = $_POST['kyn'];
+                            $land = $_POST['land'];
                             $lykilord = md5($_POST['lykilord']);
                         } catch (Exception $e) {
                              echo "Error fetching: " . $e->getMessage();
                         }
 
-                        $sql = 'INSERT INTO notandi(nafn, kennitala, kyn, Land, lykilord, netfang)
-                                VALUES(:nafn, :kennitala, :kyn, :Land, :lykilord, :netfang)';
+                        $sql = 'INSERT INTO notandi(kennitala, nafn, netfang, kyn, land, lykilord)
+                                VALUES(:kennitala, :nafn, :netfang, :kyn, :land, :lykilord)';
                         $q = $connection->prepare($sql);
                         try{
-                            $q->bindValue(':nafn',$Nafn);
-                            $q->bindValue(':kennitala',$kt);
-                            $q->bindValue(':kyn',$kyn);
-                            $q->bindValue(':Land',$Land);
-                            $q->bindValue(':lykilord',$lykilord);
-                            $q->bindValue(':netfang',$netfang);
+                            $q->bindValue(':kennitala', $kt);
+                            $q->bindValue(':nafn', $nafn);
+                            $q->bindValue(':netfang', $netfang);
+                            $q->bindValue(':kyn', $kyn);
+                            $q->bindValue(':land', $land);
+                            $q->bindValue(':lykilord', $lykilord);
                             $q->execute();
                         } 
                         catch (Exception $e) {
                             echo "Error fetching: " . $e->getMessage();
                         }
 
-                        #Setja inn reikningar þegar notandi býr til nýjann aðgang.
-                        #$sql = 'INSERT INTO reikningar(id, id_notandi)'
+                        #Setja inn reikningar þegar notandi býr til nýjann aðgang
+                        $sql = 'SELECT id FROM notandi WHERE kennitala = "$kt"';
+                        echo "I've made the new command";
+                        try{
+                            $result = $connection->query($sql);
+                            echo "I've gotten the result";
+                        } catch(PDOException $ex) {
+                            echo "Error fetching record: " . $ex->getMessage();
+                        }
+                        while($row = $result->fetch())
+                        {
+                            $id[] = array($row['id']);
+                            echo "Here is the result: " . $id[0][0];
+                        }
+                        $id_notandi = $id[0][0];
+                        echo "I've put the result in a variable: " . $id_notandi;
+
+                        $sql = 'INSERT INTO reikningar(id_notandi)
+                                VALUES(:id_notandi)';
+                        echo "I've made another query";
+
+                        $q = $connection->prepare($sql);
+                        try{
+                            $q->bindValue(':id_notandi', $id_notandi);
+                            echo "I've successfully bound it";
+                        } catch (Exception $e){
+                            echo "Error inserting: " . $e->getMessage();
+                        }
+
                         ?>
             </div>
             <div class="pure-u-1-2">

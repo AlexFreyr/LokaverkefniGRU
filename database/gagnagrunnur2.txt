@@ -1,0 +1,22 @@
+CREATE TABLE notandi(
+  id int(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  kennitala VARCHAR(10),
+  nafn VARCHAR(75),
+  netfang VARCHAR(50),
+  kyn VARCHAR(9),
+  land VARCHAR(20),
+  lykilord VARCHAR(40)
+);
+
+CREATE TABLE reikningar(
+  id INT(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_notandi INT(5),
+  FOREIGN KEY (id_notandi) REFERENCES notandi(id)
+);
+
+CREATE TABLE innistaeda(
+  id INT(5) PRIMARY KEY AUTO_INCREMENT,
+  innistaeda INT(5),
+  vextir DOUBLE
+  FOREIGN KEY (id) REFERENCES reikningar(id)
+);
