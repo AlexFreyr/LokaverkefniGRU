@@ -122,21 +122,7 @@ namespace GruLokaVerkefni
 
         private void btSkodaToflu_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            List<string> linur = new List<string>();
-            try
-            {
-                linur = gagnagrunnur.LesautSQLToflu();
-
-                foreach (string lin in linur)
-                {
-                    listBox1.Items.Add(lin);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+            
         }
 
         private void tbBreytaOgUppfaera_Click(object sender, EventArgs e)
@@ -161,12 +147,95 @@ namespace GruLokaVerkefni
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Notandi
+            
+            List<string> linur = new List<string>();
+            string[] dataNotandi;
+            string lineNotandi = null;
+            int talaNotandi = 0;
+            try
+            {
+
+                linur = gagnagrunnur.LesautSQLToflu();
+                while ((lineNotandi = linur[talaNotandi]) != null)
+                {
+                    dgNotandi.Rows.Add();
+                    dataNotandi = lineNotandi.Split(':');
+                    dgNotandi.Rows[talaNotandi].Cells[0].Value = dataNotandi[0];
+                    dgNotandi.Rows[talaNotandi].Cells[1].Value = dataNotandi[1];
+                    dgNotandi.Rows[talaNotandi].Cells[2].Value = dataNotandi[2];
+                    dgNotandi.Rows[talaNotandi].Cells[3].Value = dataNotandi[3];
+                    this.dgNotandi.ColumnHeadersHeight = 20;
+                    talaNotandi++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            //Inneingn Datagrid
+            List<string> linurInneign = new List<string>();
+            string[] data;
+            string line = null;
+            int tala = 0;
+            try
+            {
+
+                linurInneign = gagnagrunnur.LesautInneignSQLToflu();
+                while ((line = linurInneign[tala]) != null)
+                {
+                    dgReikningar.Rows.Add();
+                    data = line.Split(':');
+                    dgReikningar.Rows[tala].Cells[0].Value = data[0];
+                    dgReikningar.Rows[tala].Cells[1].Value = data[1];
+                    dgReikningar.Rows[tala].Cells[2].Value = data[2];
+                    dgReikningar.Rows[tala].Cells[3].Value = data[3];
+                    this.dgReikningar.ColumnHeadersHeight = 20;
+                    tala++;
+                }
+              
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error " + ex);
+            }
+            // Skudlir Datagrid
+            /*
+            List<string> linurSkuldir = new List<string>();
+            string[] dataSkuldir;
+            string lineSkuldir = null;
+            int talaSkuldir = 0;
+            try
+            {
+
+                linurSkuldir = gagnagrunnur.LesaUtSkuldirSQLToflu();
+                while ((lineSkuldir = linurSkuldir[talaSkuldir]) != null)
+                {
+                    dgSkuldir.Rows.Add();
+                    dataSkuldir = lineSkuldir.Split(':');
+                    dgSkuldir.Rows[talaSkuldir].Cells[0].Value = dataSkuldir[0];
+                    dgSkuldir.Rows[talaSkuldir].Cells[1].Value = dataSkuldir[1];
+                    dgSkuldir.Rows[talaSkuldir].Cells[2].Value = dataSkuldir[2];
+                    dgSkuldir.Rows[talaSkuldir].Cells[3].Value = dataSkuldir[3];
+                    this.dgSkuldir.ColumnHeadersHeight = 20;
+                    talaSkuldir++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error " + ex);
+            }*/
+
 
         }
 
         private void btEydaEinstakling_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            
             string id_medlimur = tbBreytaKennitolu.Text;
             try
             {
@@ -202,23 +271,11 @@ namespace GruLokaVerkefni
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-            List<string> linur = new List<string>();
-            try
-            {
-                
+       
 
-                foreach (string lin in linur)
-                {
-                    listBox1.Items.Add(lin);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+        private void dgReikningar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -44,8 +44,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbBreytaOgUppfaera = new System.Windows.Forms.Button();
             this.tbBreytaNetafng = new System.Windows.Forms.TextBox();
-            this.btSkodaToflu = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbKyn = new System.Windows.Forms.ComboBox();
             this.tbLykilord = new System.Windows.Forms.TextBox();
@@ -79,22 +77,27 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgReikningar = new System.Windows.Forms.DataGridView();
             this.ColumnNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnReiknisNumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnInneign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSkuldir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVextir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNotandi = new System.Windows.Forms.DataGridView();
+            this.ColumnNotandiNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNotandiLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNotandiNetfang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNotandiKennitala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReikningar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgNotandi)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox2.BackColor = System.Drawing.Color.Aqua;
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.btEydaEinstakling);
             this.groupBox2.Controls.Add(this.label9);
@@ -111,9 +114,9 @@
             this.groupBox2.Controls.Add(this.tbBreytaOgUppfaera);
             this.groupBox2.Controls.Add(this.tbBreytaNetafng);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(845, 70);
+            this.groupBox2.Location = new System.Drawing.Point(863, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 241);
+            this.groupBox2.Size = new System.Drawing.Size(255, 241);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Breyta";
@@ -255,34 +258,9 @@
             this.tbBreytaNetafng.Size = new System.Drawing.Size(100, 20);
             this.tbBreytaNetafng.TabIndex = 8;
             // 
-            // btSkodaToflu
-            // 
-            this.btSkodaToflu.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btSkodaToflu.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btSkodaToflu.Location = new System.Drawing.Point(492, 298);
-            this.btSkodaToflu.Name = "btSkodaToflu";
-            this.btSkodaToflu.Size = new System.Drawing.Size(276, 23);
-            this.btSkodaToflu.TabIndex = 22;
-            this.btSkodaToflu.Text = "Skoða meðlimatöflu";
-            this.btSkodaToflu.UseVisualStyleBackColor = false;
-            this.btSkodaToflu.Click += new System.EventHandler(this.btSkodaToflu_Click);
-            // 
-            // listBox1
-            // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Font = new System.Drawing.Font("Open Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(388, 84);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(443, 210);
-            this.listBox1.TabIndex = 21;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.BackColor = System.Drawing.Color.Crimson;
             this.groupBox1.Controls.Add(this.tbKyn);
             this.groupBox1.Controls.Add(this.tbLykilord);
             this.groupBox1.Controls.Add(this.tbLand);
@@ -424,7 +402,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox3.BackColor = System.Drawing.Color.BlueViolet;
             this.groupBox3.Controls.Add(this.btFinnaReikningKT);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.label19);
@@ -535,6 +513,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.Chartreuse;
             this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.textBox5);
@@ -612,18 +591,6 @@
             this.label18.TabIndex = 12;
             this.label18.Text = "Kennitala:";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(492, 570);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Skoða Reikninga";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dgReikningar
             // 
             this.dgReikningar.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -632,12 +599,13 @@
             this.ColumnNafn,
             this.ColumnReiknisNumer,
             this.ColumnInneign,
-            this.ColumnSkuldir});
+            this.ColumnVextir});
             this.dgReikningar.GridColor = System.Drawing.SystemColors.Control;
             this.dgReikningar.Location = new System.Drawing.Point(388, 327);
             this.dgReikningar.Name = "dgReikningar";
             this.dgReikningar.Size = new System.Drawing.Size(443, 237);
             this.dgReikningar.TabIndex = 26;
+            this.dgReikningar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReikningar_CellContentClick);
             // 
             // ColumnNafn
             // 
@@ -654,25 +622,59 @@
             this.ColumnInneign.HeaderText = "Inneign";
             this.ColumnInneign.Name = "ColumnInneign";
             // 
-            // ColumnSkuldir
+            // ColumnVextir
             // 
-            this.ColumnSkuldir.HeaderText = "Skuldir";
-            this.ColumnSkuldir.Name = "ColumnSkuldir";
+            this.ColumnVextir.HeaderText = "Vextir";
+            this.ColumnVextir.Name = "ColumnVextir";
+            // 
+            // dgNotandi
+            // 
+            this.dgNotandi.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgNotandi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgNotandi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNotandiNafn,
+            this.ColumnNotandiLand,
+            this.ColumnNotandiNetfang,
+            this.ColumnNotandiKennitala});
+            this.dgNotandi.GridColor = System.Drawing.SystemColors.Control;
+            this.dgNotandi.Location = new System.Drawing.Point(388, 75);
+            this.dgNotandi.Name = "dgNotandi";
+            this.dgNotandi.Size = new System.Drawing.Size(443, 238);
+            this.dgNotandi.TabIndex = 28;
+            // 
+            // ColumnNotandiNafn
+            // 
+            this.ColumnNotandiNafn.HeaderText = "Nafn";
+            this.ColumnNotandiNafn.Name = "ColumnNotandiNafn";
+            // 
+            // ColumnNotandiLand
+            // 
+            this.ColumnNotandiLand.HeaderText = "Land";
+            this.ColumnNotandiLand.Name = "ColumnNotandiLand";
+            // 
+            // ColumnNotandiNetfang
+            // 
+            this.ColumnNotandiNetfang.HeaderText = "Netfang";
+            this.ColumnNotandiNetfang.Name = "ColumnNotandiNetfang";
+            // 
+            // ColumnNotandiKennitala
+            // 
+            this.ColumnNotandiKennitala.HeaderText = "Kennitala";
+            this.ColumnNotandiKennitala.Name = "ColumnNotandiKennitala";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.Brown;
             this.ClientSize = new System.Drawing.Size(1153, 609);
+            this.Controls.Add(this.dgNotandi);
             this.Controls.Add(this.dgReikningar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.btSkodaToflu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.ForeColor = System.Drawing.Color.Crimson;
             this.Name = "Form1";
             this.Text = "Bank Admin ";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -685,6 +687,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReikningar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgNotandi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,8 +704,6 @@
         private System.Windows.Forms.Button tbBreytaOgUppfaera;
         private System.Windows.Forms.TextBox tbBreytaNetafng;
         private System.Windows.Forms.Button btEydaEinstakling;
-        private System.Windows.Forms.Button btSkodaToflu;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btSkraIMedlimatoflu;
         private System.Windows.Forms.TextBox tbSkraningNetfang;
@@ -742,12 +743,16 @@
         private System.Windows.Forms.Button btFinnaReikningKT;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgReikningar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNafn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReiknisNumer;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInneign;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSkuldir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVextir;
+        private System.Windows.Forms.DataGridView dgNotandi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiNafn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiLand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiNetfang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiKennitala;
     }
 }
 

@@ -28,8 +28,8 @@ namespace GruLokaVerkefni
         public void TengingVidGagnagrunn()
         {
             server = "tsuts.tskoli.is";
-            database = "2408982179_grulokaverk";
-            uid = "2408982179";
+            database = "GRU_H7_grulokaverk";
+            uid = "GRU_H7";
             password = "mypassword";
 
             tengistrengur = "server= " + server + ";userid= " + uid + ";password= " + password + ";database= " + database;
@@ -113,7 +113,7 @@ namespace GruLokaVerkefni
             string lina = null;
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT Kennitala,Nafn,netfang,Kyn,Land,Lykilord FROM notandi";
+                fyrirspurn = "SELECT Nafn,Land,netfang,Kennitala FROM notandi";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
 
                 sqllesari = nySQLskipun.ExecuteReader();
@@ -131,7 +131,54 @@ namespace GruLokaVerkefni
             }
             return Faerslur;
         }
+        public List<string> LesautInneignSQLToflu()
+        {
+            List<string> Faerslur = new List<string>();
+            string lina = null;
+            if (OpenConnection() == true)
+            {
+                fyrirspurn = "SELECT notandi.nafn,reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
 
+                sqllesari = nySQLskipun.ExecuteReader();
+                while (sqllesari.Read())
+                {
+                    for (int i = 0; i < sqllesari.FieldCount; i++)
+                    {
+                        lina += (sqllesari.GetValue(i).ToString()) + ":";
+                    }
+                    Faerslur.Add(lina);
+                    lina = null;
+                }
+                CloseConnection();
+                return Faerslur;
+            }
+            return Faerslur;
+        }
+        public List<string> LesaUtSkuldirSQLToflu()
+        {
+            List<string> Faerslur = new List<string>();
+            string lina = null;
+            if (OpenConnection() == true)
+            {
+                fyrirspurn = "SELECT notandi.nafn,reikningar.id, Skuldir.Skuldir, Skuldir.vextir FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN skuldir ON skuldir.id = reikningar.id";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+
+                sqllesari = nySQLskipun.ExecuteReader();
+                while (sqllesari.Read())
+                {
+                    for (int i = 0; i < sqllesari.FieldCount; i++)
+                    {
+                        lina += (sqllesari.GetValue(i).ToString()) + ":";
+                    }
+                    Faerslur.Add(lina);
+                    lina = null;
+                }
+                CloseConnection();
+                return Faerslur;
+            }
+            return Faerslur;
+        }
         public string[] FinnaAkvedinOgSkilaTilBaka(string kt)
         {
             string[] gogn = new string[6];

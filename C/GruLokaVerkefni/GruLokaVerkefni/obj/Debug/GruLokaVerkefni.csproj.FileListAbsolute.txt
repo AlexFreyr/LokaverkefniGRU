@@ -8,12 +8,12 @@
 \\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\MySql.Data.dll
 \\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
 \\skra\nem-redirect$\3108982369\documents\visual studio 2013\Projects\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe.config
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.pdb
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csprojResolveAssemblyReference.cache
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
-C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe.config
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.pdb
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csprojResolveAssemblyReference.cache
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
+C:\Users\3108982369\Desktop\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
