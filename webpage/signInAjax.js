@@ -27,9 +27,31 @@ function process(){
 	if(xmlHttp.readyState == 0 || xmlHttp.readyState == 4){
 		kt = encodeURIComponent(document.getElementById('login-kt').value);
 		password = encodeURIComponent(document.getElementById('login-lykilord').value);
-		xmlHttp.open("GET", "userSignIn.php?kt=" + kt + "&password=" + CryptoJS.MD5(password), true);
-		xmlHttp.onreadystatechange = handleServerResponse;
-		xmlHttp.send(null);
+		//alert(kt + " " + CryptoJS.MD5(password));
+		//xmlHttp.open("GET", "userSignIn.php?kt=" + kt + "&password=" + CryptoJS.MD5(password), true); //Ekki valid URL ?
+		//xmlHttp.onreadystatechange = handleServerResponse;
+		//xmlHttp.send(null);
+
+		$.ajax({
+			url: "userSignIn.php",
+			data: {
+				kt: kt
+			},
+			type: "GET",
+			dataType : "json",
+			success: function(json){
+				$('#login-notification').text(json.title);
+			},
+			error: function( xhr, status, errorThrown ) {
+	        alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    	},
+	    	complete: function( xhr, status ) {
+		        alert( "The request is complete!" );
+		    }
+		});
 	}
 }
 
@@ -41,7 +63,7 @@ function handleServerResponse(){
 			message = xmlDocumentElement.firstChild.data;
 			document.getElementById('kt-alert').innerHTML = message;
 		} else {
-			alert("XMLHTTP STATUS: " + xmlHttp.status);
+			alert("XMLHTTP STATUS: " + xmlHttp.statusText);
 		}
 	}
 }
