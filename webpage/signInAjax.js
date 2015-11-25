@@ -25,8 +25,9 @@ function createXmlHttpRequestObject(){
 
 function process(){
 	if(xmlHttp.readyState == 0 || xmlHttp.readyState == 4){
-		kt = encodeURIComponent(document.getElementById('kennitala').value);
-		xmlHttp.open("GET", "userExist.php?kt=" + kt, true);
+		kt = encodeURIComponent(document.getElementById('login-kt').value);
+		password = encodeURIComponent(document.getElementById('login-lykilord').value);
+		xmlHttp.open("GET", "userSignIn.php?kt=" + kt + "&password=" + CryptoJS.MD5(password), true);
 		xmlHttp.onreadystatechange = handleServerResponse;
 		xmlHttp.send(null);
 	}
@@ -40,13 +41,13 @@ function handleServerResponse(){
 			message = xmlDocumentElement.firstChild.data;
 			document.getElementById('kt-alert').innerHTML = message;
 		} else {
-			alert(xmlHttp.status);
+			alert("XMLHTTP STATUS: " + xmlHttp.status);
 		}
 	}
 }
 
 $(document).ready(function(){
 	$('#login-submit').click(function(){
-		
+		process();
 	});
 });

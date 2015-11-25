@@ -1,0 +1,3 @@
+SELECT notandi.nafn, innistaeda.innistaeda, reikningar.id FROM notandi
+INNER JOIN reikningar ON reikningar.id_notandi = notandi.id
+INNER JOIN innistaeda ON innistaeda.id = reikningar.id
