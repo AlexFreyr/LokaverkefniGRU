@@ -112,22 +112,22 @@
                     </fieldset>
                 </form>    
             </div>
-            <div class="pure-u-1-2" id="login">
+            <div class="pure-u-1-2" id="login-form">
                 <h2>Skráðu þig inn</h2>
 
                 <!--PHP breytur-->
-                <form class="pure-form pure-form-aligned">
+                <form class="pure-form pure-form-aligned" id="login-form">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="nafn">Kennitala</label>
-                            <input id="login-kt" type="text" placeholder="Kennitala" name="login-kt">
+                            <input id="login-kt" type="text" placeholder="Kennitala">
                         </div>
                         <div class="pure-control-group">
                             <label for="nafn">Lykilorð</label>
-                            <input id="login-lykilord" type="password" placeholder="Lykilorð" name="login-lykilord">
+                            <input id="login-lykilord" type="password" placeholder="Lykilorð">
                         </div>
                         <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary" id="login-submit">Skrá inn</button>
+                            <input type="button" class="pure-button pure-button-primary" id="login-submit" value="Login">
                         </div>
                         <p id="login-notification"></p>
                     </fieldset>
@@ -135,9 +135,8 @@
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
         <script type="text/javascript" src="signUpAjax.js"></script>
-        <!--<script type="text/javascript" src="signInAjax.js"></script>-->
+        <script type="text/javascript" src="signInAjax.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
         <script type="text/javascript" src="js/menu.js"></script>
         <script type="text/javascript" src="js/signup.js"></script>
