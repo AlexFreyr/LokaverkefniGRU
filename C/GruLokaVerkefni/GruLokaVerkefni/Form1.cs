@@ -146,7 +146,7 @@ namespace GruLokaVerkefni
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+           {        
             //Notandi
             
             List<string> linur = new List<string>();
@@ -185,6 +185,7 @@ namespace GruLokaVerkefni
                 linurInneign = gagnagrunnur.LesautInneignSQLToflu();
                 while ((line = linurInneign[tala]) != null)
                 {
+
                     dgReikningar.Rows.Add();
                     data = line.Split(':');
                     dgReikningar.Rows[tala].Cells[0].Value = data[0];
@@ -193,6 +194,10 @@ namespace GruLokaVerkefni
                     dgReikningar.Rows[tala].Cells[3].Value = data[3];
                     this.dgReikningar.ColumnHeadersHeight = 20;
                     tala++;
+                    
+                    
+                       
+                    
                 }
               
             }
@@ -254,13 +259,16 @@ namespace GruLokaVerkefni
 
         private void btLeitaReiknings_Click(object sender, EventArgs e)
         {
-            string ReiknisNumer = tbReiknings.Text;
-            string[] gognFraSQL = new string[2];
+            string Nafn = tbNafnReikning.Text;
+            string[] gognFraSQL = new string[3];
             try
             {
-                gognFraSQL = gagnagrunnur.FinnaReikning(ReiknisNumer);
-                tbInneign.Text = gognFraSQL[0];
-                tbSkuldir.Text = gognFraSQL[1];
+                gognFraSQL = gagnagrunnur.FinnaReikning(Nafn);
+                tbReiknings.Text = gognFraSQL[0];
+                tbInneign.Text = gognFraSQL[1];
+                tbVextir.Text = gognFraSQL[2];
+                
+                
         
 
 
@@ -274,6 +282,11 @@ namespace GruLokaVerkefni
        
 
         private void dgReikningar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btFinnaReikningKT_Click(object sender, EventArgs e)
         {
 
         }

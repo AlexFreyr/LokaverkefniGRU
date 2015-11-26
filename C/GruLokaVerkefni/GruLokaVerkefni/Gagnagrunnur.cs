@@ -203,18 +203,20 @@ namespace GruLokaVerkefni
             }
             return gogn;
         }
-        public string[] FinnaReikning(string rn)
+        public string[] FinnaReikning(string nafn)
         {
-            string[] gogn = new string[2];
+            string[] gogn = new string[3];
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT  Innistaeda,skuldir FROM Innistaeda where ID_reikningur='" + rn + "'";
+                fyrirspurn = "SELECT reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id where nafn  ='" + nafn + "'";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
                 sqllesari = nySQLskipun.ExecuteReader();
                 while (sqllesari.Read())
                 {
                     gogn[0] = sqllesari.GetValue(0).ToString();
                     gogn[1] = sqllesari.GetValue(1).ToString();
+                    gogn[2] = sqllesari.GetValue(2).ToString();
+                   
                   
                 }
                 sqllesari.Close();

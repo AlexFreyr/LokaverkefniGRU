@@ -59,12 +59,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btFinnaReikningKT = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.tbInneign = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.tbSkuldir = new System.Windows.Forms.TextBox();
+            this.tbVextir = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btLeitaReiknings = new System.Windows.Forms.Button();
             this.tbReiknings = new System.Windows.Forms.TextBox();
@@ -87,6 +84,8 @@
             this.ColumnNotandiLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiNetfang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiKennitala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbNafnReikning = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -116,7 +115,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(863, 70);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(255, 241);
+            this.groupBox2.Size = new System.Drawing.Size(278, 241);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Breyta";
@@ -331,9 +330,9 @@
             // btSkraIMedlimatoflu
             // 
             this.btSkraIMedlimatoflu.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btSkraIMedlimatoflu.Location = new System.Drawing.Point(21, 204);
+            this.btSkraIMedlimatoflu.Location = new System.Drawing.Point(21, 190);
             this.btSkraIMedlimatoflu.Name = "btSkraIMedlimatoflu";
-            this.btSkraIMedlimatoflu.Size = new System.Drawing.Size(153, 23);
+            this.btSkraIMedlimatoflu.Size = new System.Drawing.Size(142, 21);
             this.btSkraIMedlimatoflu.TabIndex = 8;
             this.btSkraIMedlimatoflu.Text = "Skráí í meðlimatöflu";
             this.btSkraIMedlimatoflu.UseVisualStyleBackColor = false;
@@ -403,12 +402,11 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.BlueViolet;
-            this.groupBox3.Controls.Add(this.btFinnaReikningKT);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.tbNafnReikning);
+            this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.tbInneign);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.tbSkuldir);
+            this.groupBox3.Controls.Add(this.tbVextir);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.btLeitaReiknings);
             this.groupBox3.Controls.Add(this.tbReiknings);
@@ -416,43 +414,16 @@
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox3.Location = new System.Drawing.Point(863, 327);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(255, 237);
+            this.groupBox3.Size = new System.Drawing.Size(278, 237);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skuldir Og Inneign";
             // 
-            // btFinnaReikningKT
-            // 
-            this.btFinnaReikningKT.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btFinnaReikningKT.Location = new System.Drawing.Point(181, 152);
-            this.btFinnaReikningKT.Name = "btFinnaReikningKT";
-            this.btFinnaReikningKT.Size = new System.Drawing.Size(75, 23);
-            this.btFinnaReikningKT.TabIndex = 23;
-            this.btFinnaReikningKT.Text = "Leita";
-            this.btFinnaReikningKT.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(72, 152);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(103, 20);
-            this.textBox1.TabIndex = 21;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(15, 157);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 13);
-            this.label19.TabIndex = 22;
-            this.label19.Text = "Kennitala";
-            // 
             // tbInneign
             // 
-            this.tbInneign.Location = new System.Drawing.Point(75, 85);
+            this.tbInneign.Location = new System.Drawing.Point(63, 81);
             this.tbInneign.Name = "tbInneign";
-            this.tbInneign.Size = new System.Drawing.Size(100, 20);
+            this.tbInneign.Size = new System.Drawing.Size(112, 20);
             this.tbInneign.TabIndex = 16;
             this.tbInneign.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -460,28 +431,28 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(15, 90);
+            this.label15.Location = new System.Drawing.Point(15, 86);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(42, 13);
             this.label15.TabIndex = 17;
             this.label15.Text = "Inneign";
             // 
-            // tbSkuldir
+            // tbVextir
             // 
-            this.tbSkuldir.Location = new System.Drawing.Point(75, 59);
-            this.tbSkuldir.Name = "tbSkuldir";
-            this.tbSkuldir.Size = new System.Drawing.Size(100, 20);
-            this.tbSkuldir.TabIndex = 14;
+            this.tbVextir.Location = new System.Drawing.Point(63, 107);
+            this.tbVextir.Name = "tbVextir";
+            this.tbVextir.Size = new System.Drawing.Size(112, 20);
+            this.tbVextir.TabIndex = 14;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(15, 64);
+            this.label14.Location = new System.Drawing.Point(15, 112);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 13);
+            this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 15;
-            this.label14.Text = "Skuldir";
+            this.label14.Text = "Vextir";
             // 
             // btLeitaReiknings
             // 
@@ -496,20 +467,20 @@
             // 
             // tbReiknings
             // 
-            this.tbReiknings.Location = new System.Drawing.Point(109, 31);
+            this.tbReiknings.Location = new System.Drawing.Point(63, 55);
             this.tbReiknings.Name = "tbReiknings";
-            this.tbReiknings.Size = new System.Drawing.Size(66, 20);
+            this.tbReiknings.Size = new System.Drawing.Size(112, 20);
             this.tbReiknings.TabIndex = 11;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(15, 36);
+            this.label10.Location = new System.Drawing.Point(15, 60);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(88, 13);
+            this.label10.Size = new System.Drawing.Size(23, 13);
             this.label10.TabIndex = 12;
-            this.label10.Text = "Reiknings Númer";
+            this.label10.Text = "RN";
             // 
             // groupBox4
             // 
@@ -662,6 +633,23 @@
             this.ColumnNotandiKennitala.HeaderText = "Kennitala";
             this.ColumnNotandiKennitala.Name = "ColumnNotandiKennitala";
             // 
+            // tbNafnReikning
+            // 
+            this.tbNafnReikning.Location = new System.Drawing.Point(63, 29);
+            this.tbNafnReikning.Name = "tbNafnReikning";
+            this.tbNafnReikning.Size = new System.Drawing.Size(112, 20);
+            this.tbNafnReikning.TabIndex = 24;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(15, 34);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 13);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "Nafn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,7 +715,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbInneign;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox tbSkuldir;
+        private System.Windows.Forms.TextBox tbVextir;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btLeitaReiknings;
         private System.Windows.Forms.TextBox tbReiknings;
@@ -740,9 +728,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btFinnaReikningKT;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridView dgReikningar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNafn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReiknisNumer;
@@ -753,6 +738,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiLand;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiNetfang;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiKennitala;
+        private System.Windows.Forms.TextBox tbNafnReikning;
+        private System.Windows.Forms.Label label20;
     }
 }
 
