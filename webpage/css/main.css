@@ -156,7 +156,10 @@ body{
 
 /**/
 
-#notification, #kt-alert{ color: red; }
+#notification, #kt-alert, #login-notification{ color: red; }
+#login-notification{
+    padding-left: 8em; 
+}
 
 .circle{
 	margin: auto;

@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Lokaverkefni GRU">
 
-        <title>Lokaverkefni GRU</title>
+        <title>Áríon banki</title>
 
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
@@ -51,23 +51,22 @@
         	<h2>Takk fyrir að stofna nýjann aðgang hjá okkur</h2>
         	<p>Nú getur þú skráð þig inn og byrjað að safna</p>
 
-        	<form class="pure-form pure-form-aligned">
+        	<form class="pure-form pure-form-aligned" id="login-form" method="POST" action="user/system.php">
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="nafn">Kennitala</label>
-                        <input id="login-kt" type="text" placeholder="Kennitala" name="login-kt">
+                        <input id="login-kt" type="text" placeholder="Kennitala" name="kt">
                     </div>
                     <div class="pure-control-group">
                         <label for="nafn">Lykilorð</label>
-                        <input id="login-lykilord" type="password" placeholder="Lykilorð" name="login-lykilord">
+                        <input id="login-lykilord" type="password" placeholder="Lykilorð" name="lykilord">
                     </div>
                     <div class="pure-controls">
-                        <button type="submit" class="pure-button pure-button-primary" id="login-submit">Skrá inn</button>
+                        <input type="submit" class="pure-button pure-button-primary" id="login-submit" value="Login">
                     </div>
                     <p id="login-notification"></p>
                 </fieldset>
             </form>
-            <p id="kt-alert"></p>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/md5.js"></script>
