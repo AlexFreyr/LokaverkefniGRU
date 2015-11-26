@@ -110,7 +110,8 @@ body{
 /*Banner*/
 
 .banner{
-    background: transparent url('http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg') 0 0 no-repeat fixed;
+    background: transparent url('http://s3.amazonaws.com/codecademy-content/projects/broadway/bg.jpg') 0 0 no-repeat fixed;
+    /*http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg*/
     text-align: center;
     background-size: cover;
     height: 200px;
