@@ -68,7 +68,12 @@
         echo "Error inserting: " . $e->getMessage();
     }
 
-    header('Location: ../nyrAdgangurComplete.html');
+    session_start();
+
+    $_SESSION['kennitala'] = $_POST["kennitala"];
+    $_SESSION['lykilord'] = $lykilord = md5($_POST['lykilord']);
+
+    header('Location: ../user/skrain.php');
     exit;
 ?>
 </body>

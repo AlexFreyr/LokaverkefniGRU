@@ -23,25 +23,34 @@
         <!--<![endif]-->
 
         <div class="custom-wrapper pure-g" id="menu">
-            <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-u-1 pure-u-md-1-5">
                 <div class="pure-menu">
-                    <a href="index.html" class="pure-menu-heading custom-brand">Áríon banki</a>
+                    <a href="index.php" class="pure-menu-heading custom-brand">Áríon banki</a>
                     <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
                 </div>
             </div>
-            <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-u-1 pure-u-md-2-5">
                 <div class="pure-menu pure-menu-horizontal custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="umOkkur.html" class="pure-menu-link" id="selected">Um okkur</a></li>
-                        <li class="pure-menu-item"><a href="skylmalar.html" class="pure-menu-link">Skilmálar</a></li>
-                        <li class="pure-menu-item"><a href="hafaSamband.html" class="pure-menu-link">Hafa samband</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Um okkur</a></li>
+                        <li class="pure-menu-item"><a href="skilmalar.php" class="pure-menu-link">Skilmálar</a></li>
+                        <li class="pure-menu-item"><a href="hafaSamband.php" class="pure-menu-link">Hafa samband</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-u-1 pure-u-md-2-5">
                 <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="nyrAdgangur.html" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>
+                        <?php
+                            session_start();
+
+                            if(isset($_SESSION['nafn'])){
+                                echo '<li class="pure-menu-item"><a href="user/home.php" class="pure-menu-link">Skráð/ur inn sem ' . $_SESSION['nafn'] . '</a></li>';
+                                echo '<li class="pure-menu-item"><a href="user/skraut.php" class="pure-menu-link">Útskráning</a></li>';
+                            }else{
+                                echo '<li class="pure-menu-item"><a href="nyrAdgangur.php" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>

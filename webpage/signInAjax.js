@@ -14,7 +14,7 @@ $(document).ready(function () {
 				},
 				success: function(data){
 					if(data == "Success"){	
-						window.location.replace('user/system.php');
+						window.location.replace('user/skrain.php');
 					}
 					else{
 						$('#login-notification').text(data);

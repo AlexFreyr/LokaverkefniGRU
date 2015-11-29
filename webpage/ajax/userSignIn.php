@@ -14,11 +14,8 @@
 			
 			echo (mysql_num_rows($query) !== 0) ? 'Success' : 'Kennitala eða lykilorð ekki rétt';
 
-			$_SESSION['notandi'] = $_POST['kt'];
+			$_SESSION['kennitala'] = $_POST['kt'];
 			$_SESSION['lykilord'] = md5($_POST['password']);
 		}
 	}
-
-	//mysql_result($query, 0, 'kennitala')
-	// query result, row number, row name
 ?>

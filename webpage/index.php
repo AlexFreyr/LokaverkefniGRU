@@ -32,16 +32,25 @@
             <div class="pure-u-1 pure-u-md-2-5">
                 <div class="pure-menu pure-menu-horizontal custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="umOkkur.html" class="pure-menu-link">Um okkur</a></li>
-                        <li class="pure-menu-item"><a href="skylmalar.html" class="pure-menu-link">Skilmálar</a></li>
-                        <li class="pure-menu-item"><a href="hafasamband.html" class="pure-menu-link">Hafa samband</a></li>
+                        <li class="pure-menu-item"><a href="umOkkur.php" class="pure-menu-link">Um okkur</a></li>
+                        <li class="pure-menu-item"><a href="skilmalar.php" class="pure-menu-link">Skilmálar</a></li>
+                        <li class="pure-menu-item"><a href="hafasamband.php" class="pure-menu-link">Hafa samband</a></li>
                     </ul>
                 </div>
             </div>
             <div class="pure-u-1 pure-u-md-2-5">
                 <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="nyrAdgangur.html" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>
+                        <?php
+                            session_start();
+
+                            if(isset($_SESSION['nafn'])){
+                                echo '<li class="pure-menu-item"><a href="user/home.php" class="pure-menu-link">Skráð/ur inn sem ' . $_SESSION['nafn'] . '</a></li>';
+                                echo '<li class="pure-menu-item"><a href="user/skraut.php" class="pure-menu-link">Útskráning</a></li>';
+                            }else{
+                                echo '<li class="pure-menu-item"><a href="nyrAdgangur.php" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>';
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -56,21 +65,27 @@
             <div class="circle-content">
                 <div class="pure-g">
                     <div class="pure-u-1-3">
-                        <div class="circle">
-                            <img src="img/padlock.png" class="circle-icon">
-                        </div>
+                        <a href="#" class="fkn">
+                            <div class="circle">
+                                <img src="img/padlock.png" class="circle-icon">
+                            </div>
+                        </a>
                         <p class="font-ubuntu">Öryggi</p>
                     </div>
                     <div class="pure-u-1-3">
-                        <div class="circle">
-                            <img src="img/reliable.png" class="circle-icon">
-                        </div>
+                        <a href="#">
+                            <div class="circle">
+                                <img src="img/reliable.png" class="circle-icon">
+                            </div>
+                        </a>
                         <p class="font-ubuntu">Áræðanleiki</p>
                     </div>
                     <div class="pure-u-1-3">
-                        <div class="circle">
-                            <img src="img/gears.png" class="circle-icon">
-                        </div>
+                        <a href="#">
+                            <div class="circle">
+                                <img src="img/gears.png" class="circle-icon">
+                            </div>
+                        </a>
                         <p class="font-ubuntu">Þjónustuver opið allan<br> sólahringinn</p>
                     </div>
                 </div>
