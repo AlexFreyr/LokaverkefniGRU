@@ -155,7 +155,7 @@
                                 <td><input type="text" id="jpy"/></td>
                             </tr>
                         </table>
-                        <p id="gengi-note">*Endilega athugið að þetta er <span style="color: red;">ekki</span> almennt gengið í dag</p>
+                        <p id="gengi-note">*Ath. að þetta er <span style="color: red; font-weight: bold">ekki</span> almennt gengið í dag</p>
                     </div>
                 </div>
             </div>

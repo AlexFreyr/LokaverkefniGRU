@@ -13,7 +13,7 @@ function toggleHorizontal() {
 
 function toggleMenu() {
     if (menu.classList.contains('open')) {
-        setTimeout(toggleHorizontal, 500);
+        setTimeout(toggleHorizontal, 550);
     }
     else {
         toggleHorizontal();

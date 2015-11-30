@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	$('#millifaera-upphaed').numeric();
+	$('#not_upphaed').numeric();
 });

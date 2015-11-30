@@ -8,7 +8,7 @@ body{
 .custom-wrapper {
     background-color: #386991;
     -webkit-font-smoothing: antialiased;
-    height: 2.1em;
+    height: 2em;
     overflow: hidden;
     -webkit-transition: height 0.5s;
     -moz-transition: height 0.5s;
@@ -16,7 +16,7 @@ body{
     transition: height 0.5s;
 }
 
-.custom-wrapper.open { height: 12em; }
+.custom-wrapper.open { height: 12.5em; }
 
 .custom-menu-3 { text-align: right; }
 

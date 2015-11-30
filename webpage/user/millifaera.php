@@ -34,7 +34,7 @@
                     <div class="pure-menu-list">
                         <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Reikningar</a></li>
                         <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Millifæra</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Stofna reikning</a></li>
+                        <li class="pure-menu-item"><a href="stofnareikning.php" class="pure-menu-link">Stofna reikning</a></li>
                     </div>
                 </div>
             </div>
@@ -46,6 +46,10 @@
                                 <?php
                                     session_start();
                                     require "../php/dbcon.php";
+
+                                    if (!isset($_SESSION['nafn'])) {
+                                        die("Þú ert ekki skráð/ur inn");
+                                    }
 
                                     echo "Skráð/ur inn sem " . $_SESSION['nafn'];
                                 ?>
@@ -67,7 +71,6 @@
                             <label>Eigin reikningar*</label>
                             <select class="pure-input-1" id="not_reikn">
                                 <?php
-                                    session_start();
                                     $reikningar_user = mysql_query("
                                           SELECT reikningar.id Reikningsnumer, reikningar.tegund ReiknTegund, innistaeda.innistaeda Innist FROM notandi
                                           INNER JOIN reikningar ON reikningar.id_notandi = notandi.id
@@ -103,6 +106,22 @@
                     </fieldset>
                 </div>
                 <p id="alert-notification"></p>
+
+                <div class="pure-g">
+                    <div class="pure-u-1">
+                        <?php
+                            if(isset($_SESSION['nUpE'])){
+                                echo "<strong>Millifærslan var samþykkt</strong>";
+                                echo "<p>Þú millifærðir ". $_SESSION['nUp'] ." kr. á reikningsnr. " . $_SESSION['vRn'] . "</p>";
+
+                                unset($_SESSION['nReiknings']); //Reikningsnúmer notanda
+                                unset($_SESSION['nUpE']); //Notandi upphæð eftir
+                                unset($_SESSION['vRn']); //viðkomandi reikingsnúmer
+                                unset($_SESSION['nUp']); //notandi upphæð
+                            }
+                        ?>
+                    </div>
+                </div>
             </form>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

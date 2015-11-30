@@ -34,7 +34,7 @@
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Reikningar</a></li>
                         <li class="pure-menu-item"><a href="millifaera.php" class="pure-menu-link">Millifæra</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Stofna reikning</a></li>
+                        <li class="pure-menu-item"><a href="stofnareikning.php" class="pure-menu-link">Stofna reikning</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,6 +46,10 @@
                                 <?php
                                     session_start();
                                     require "../php/dbcon.php";
+
+                                    if (!isset($_SESSION['nafn'])) {
+                                        die("Þú ert ekki skráð/ur inn");
+                                    }
 
                                     echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
                                 ?>
@@ -64,7 +68,7 @@
                 <table class="pure-table pure-table-bordered" id="n_reikningar">
                     <thead>
                         <tr>
-                            <th>Reikningsnúmer</th>
+                            <th id="rn">Reikningsnúmer</th>
                             <th>Tegund reiknings</th>
                             <th>Vextir</th>
                             <th>Innistæða</th>
@@ -94,5 +98,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
         <script type="text/javascript" src="../js/menu.js"></script>
+        <script type="text/javascript" src="../js/userhome.js"></script>
     </body>
 </html>

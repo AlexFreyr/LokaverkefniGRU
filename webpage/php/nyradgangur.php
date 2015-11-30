@@ -47,15 +47,17 @@
     }
     $id_notandi = $id[0][0];
 
-    $sql = 'INSERT INTO reikningar(id_notandi)
-            VALUES(:id_notandi)';
+    $sql = 'INSERT INTO reikningar(id_notandi, tegund)
+            VALUES(:id_notandi, :tegund)';
 
     $q = $connection->prepare($sql);
     try{
         $q->bindValue(':id_notandi', $id_notandi);
+        $q->bindValue(':tegund', "Byrjendareikningur");
         $q->execute();
     } catch (Exception $e){
         echo "Error inserting: " . $e->getMessage();
+        die();
     }
 
     #Gerir einn reikning fyrir notandann, fær 10000kr þegar nýr reikningur er stofnaður
@@ -66,6 +68,7 @@
         $q->execute();
     } catch (Exception $e){
         echo "Error inserting: " . $e->getMessage();
+        die();
     }
 
     session_start();

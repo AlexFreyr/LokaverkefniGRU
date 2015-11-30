@@ -26,9 +26,8 @@
 	    exit();
 	}
 
-	unset($_SESSION['nReiknings']);
-	unset($_SESSION['vNafn']);
-	unset($_SESSION['vInni']);
+	unset($_SESSION['vNafn']); //Nafn viðkomanda
+	unset($_SESSION['vInni']); //innistæða viðkomanda
 
-	Redirect('http://tsuts.tskoli.is/2t/2408982179/gru/user/millifaerslasamthygg.php', false);
+	Redirect('http://tsuts.tskoli.is/2t/2408982179/gru/user/millifaera.php', false);
 ?>

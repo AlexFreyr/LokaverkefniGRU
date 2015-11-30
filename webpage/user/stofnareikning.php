@@ -29,16 +29,16 @@
                     <a href="#" class="custom-toggle" id="toggle"><s class="bar"></s><s class="bar"></s></a>
                 </div>
             </div>
-            <div class="pure-u-1 pure-u-md-2-5">
+            <div class="pure-u-1 pure-u-md-1-5">
                 <div class="pure-menu pure-menu-horizontal custom-can-transform">
-                    <div class="pure-menu-list">
+                    <ul class="pure-menu-list">
                         <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Reikningar</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Millifæra</a></li>
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Stofna reikning</a></li>
-                    </div>
+                        <li class="pure-menu-item"><a href="millifaera.php" class="pure-menu-link">Millifæra</a></li>
+                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Stofna reikning</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="pure-u-1 pure-u-md-2-5">
+            <div class="pure-u-1 pure-u-md-3-5">
                 <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform">
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
@@ -47,7 +47,11 @@
                                     session_start();
                                     require "../php/dbcon.php";
 
-                                    echo "Skráð/ur inn sem " . $_SESSION['nafn'];
+                                    if (!isset($_SESSION['nafn'])) {
+                                        die("Þú ert ekki skráð/ur inn");
+                                    }
+
+                                    echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
                                 ?>
                             </a>
                         </li>
@@ -58,24 +62,8 @@
         </div>
 
         <div class="main">
-            <h2 class="middle-style">Millifærslan var samþykkt</h2>
-            
-            <form class="pure-form pure-form-stacked" id="millifaera-form">
-                <div>
-                    <?php
-                        if(isset($_SESSION['nUp'])){
-                            echo "<p>Þú millifærðir ". $_SESSION['nUp'] ." kr. á reikningsnr. " . $_SESSION['vRn'] . "</p>";
-                            echo "<p>Þú átt " . $_SESSION['nUpE'] . " kr. eftir";
+            <h2 class="middle-style">Stofna reikning</h2>
 
-                            unset($_SESSION['nUpE']);
-                            unset($_SESSION['vRn']);
-                            unset($_SESSION['nUp']);
-                        }else{
-                            header("Location: millifaera.php");
-                        }
-                    ?>
-                </div>
-            </form>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
