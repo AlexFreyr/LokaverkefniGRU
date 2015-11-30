@@ -144,11 +144,10 @@ namespace GruLokaVerkefni
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-           {        
+        public void NotandiDatagridLoad()
+        {
             //Notandi
-            
+
             List<string> linur = new List<string>();
             string[] dataNotandi;
             string lineNotandi = null;
@@ -166,10 +165,14 @@ namespace GruLokaVerkefni
                     dgNotandi.Rows[talaNotandi].Cells[2].Value = dataNotandi[2];
                     dgNotandi.Rows[talaNotandi].Cells[3].Value = dataNotandi[3];
                     dgNotandi.Rows[talaNotandi].Cells[4].Value = dataNotandi[4];
-                    
+
                     this.dgNotandi.ColumnHeadersHeight = 20;
+                    if (linur.Count == (talaNotandi + 1))
+                    {
+                        break;
+                    }
                     talaNotandi++;
-                    
+
                 }
 
             }
@@ -177,6 +180,9 @@ namespace GruLokaVerkefni
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        public void InneignDatagridLoad()
+        {
             //Inneingn Datagrid
             List<string> linurInneign = new List<string>();
             string[] data;
@@ -184,7 +190,6 @@ namespace GruLokaVerkefni
             int tala = 0;
             try
             {
-
                 linurInneign = gagnagrunnur.LesautInneignSQLToflu();
                 while ((line = linurInneign[tala]) != null)
                 {
@@ -195,40 +200,14 @@ namespace GruLokaVerkefni
                     dgReikningar.Rows[tala].Cells[1].Value = data[1];
                     dgReikningar.Rows[tala].Cells[2].Value = data[2];
                     dgReikningar.Rows[tala].Cells[3].Value = data[3];
+                    dgReikningar.Rows[tala].Cells[4].Value = data[4];
                     this.dgReikningar.ColumnHeadersHeight = 20;
+
+                    if (linurInneign.Count == (tala + 1))
+                    {
+                        break;
+                    }
                     tala++;
-                    
-                    
-                       
-                    
-                }
-              
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error " + ex);
-            }
-            // Skudlir Datagrid
-            /*
-            List<string> linurSkuldir = new List<string>();
-            string[] dataSkuldir;
-            string lineSkuldir = null;
-            int talaSkuldir = 0;
-            try
-            {
-
-                linurSkuldir = gagnagrunnur.LesaUtSkuldirSQLToflu();
-                while ((lineSkuldir = linurSkuldir[talaSkuldir]) != null)
-                {
-                    dgSkuldir.Rows.Add();
-                    dataSkuldir = lineSkuldir.Split(':');
-                    dgSkuldir.Rows[talaSkuldir].Cells[0].Value = dataSkuldir[0];
-                    dgSkuldir.Rows[talaSkuldir].Cells[1].Value = dataSkuldir[1];
-                    dgSkuldir.Rows[talaSkuldir].Cells[2].Value = dataSkuldir[2];
-                    dgSkuldir.Rows[talaSkuldir].Cells[3].Value = dataSkuldir[3];
-                    this.dgSkuldir.ColumnHeadersHeight = 20;
-                    talaSkuldir++;
                 }
 
             }
@@ -236,9 +215,12 @@ namespace GruLokaVerkefni
             {
 
                 MessageBox.Show("Error " + ex);
-            }*/
-
-
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+           {
+               NotandiDatagridLoad();
+               InneignDatagridLoad();
         }
 
         private void btEydaEinstakling_Click(object sender, EventArgs e)
@@ -359,22 +341,25 @@ namespace GruLokaVerkefni
                 {
                     tbVextir.Text = dgReikningar.SelectedRows[0].Cells[3].Value.ToString();
                 }
-                
+                if (dgReikningar.SelectedRows[0].Cells[4].Value.ToString() != null)
+                {
+                    tbTegund.Text = dgReikningar.SelectedRows[0].Cells[4].Value.ToString();
+                }
             }
         }
 
         private void btBreytaInneign_Click(object sender, EventArgs e)
         {
-            string kennitala = tbBreytaKennitolu.Text,
-                  nafn = tbBreytaNafn.Text,
-                  netfang = tbBreytaNetafng.Text,
-                  kyn = tbBreytaKyn.Text,
-                  land = tbBreytaLand.Text,
-                  lykilord = tbBreytaLykilord.Text;
+            //(string Rn , string Innisteada, string Vextir, string tegund
+            string Rn = tbReiknings.Text,
+                  Innistaeda = tbInneign.Text,
+                  Vextir = tbVextir.Text,
+                  Tegund = tbTegund.Text;
+                  
 
             try
             {
-                gagnagrunnur.Uppfaera(kennitala, nafn, netfang, kyn, land, lykilord);
+                gagnagrunnur.UppfaeraReikning(Rn,Innistaeda,Vextir,Tegund);
                 MessageBox.Show("Upplýsingar voru breyttar");
             }
             catch (Exception ex)
@@ -385,68 +370,13 @@ namespace GruLokaVerkefni
 
         private void btRefresh_Click(object sender, EventArgs e)
         {
-            //Notandi
+            InneignDatagridLoad();
+            NotandiDatagridLoad();
+        }
 
-            List<string> linur = new List<string>();
-            string[] dataNotandi;
-            string lineNotandi = null;
-            int talaNotandi = 0;
-            try
-            {
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
-                linur = gagnagrunnur.LesautSQLToflu();
-                while ((lineNotandi = linur[talaNotandi]) != null)
-                {
-                    dgNotandi.Rows.Add();
-                    dataNotandi = lineNotandi.Split(':');
-                    dgNotandi.Rows[talaNotandi].Cells[0].Value = dataNotandi[0];
-                    dgNotandi.Rows[talaNotandi].Cells[1].Value = dataNotandi[1];
-                    dgNotandi.Rows[talaNotandi].Cells[2].Value = dataNotandi[2];
-                    dgNotandi.Rows[talaNotandi].Cells[3].Value = dataNotandi[3];
-                    dgNotandi.Rows[talaNotandi].Cells[4].Value = dataNotandi[4];
-
-                    this.dgNotandi.ColumnHeadersHeight = 20;
-                    talaNotandi++;
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            //Inneingn Datagrid
-            List<string> linurInneign = new List<string>();
-            string[] data;
-            string line = null;
-            int tala = 0;
-            try
-            {
-
-                linurInneign = gagnagrunnur.LesautInneignSQLToflu();
-                while ((line = linurInneign[tala]) != null)
-                {
-
-                    dgReikningar.Rows.Add();
-                    data = line.Split(':');
-                    dgReikningar.Rows[tala].Cells[0].Value = data[0];
-                    dgReikningar.Rows[tala].Cells[1].Value = data[1];
-                    dgReikningar.Rows[tala].Cells[2].Value = data[2];
-                    dgReikningar.Rows[tala].Cells[3].Value = data[3];
-                    this.dgReikningar.ColumnHeadersHeight = 20;
-                    tala++;
-
-
-
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error " + ex);
-            }
         }
 
         

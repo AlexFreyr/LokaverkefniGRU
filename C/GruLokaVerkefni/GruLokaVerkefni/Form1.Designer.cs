@@ -45,6 +45,7 @@
             this.tbBreytaOgUppfaera = new System.Windows.Forms.Button();
             this.tbBreytaNetafng = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btRefresh = new System.Windows.Forms.Button();
             this.tbKyn = new System.Windows.Forms.ComboBox();
             this.tbLykilord = new System.Windows.Forms.TextBox();
             this.tbLand = new System.Windows.Forms.TextBox();
@@ -70,17 +71,19 @@
             this.tbReiknings = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dgReikningar = new System.Windows.Forms.DataGridView();
-            this.ColumnNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReiknisNumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInneign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnVextir = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgNotandi = new System.Windows.Forms.DataGridView();
             this.ColumnNotandiNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiNetfang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiKennitala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnKyn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btRefresh = new System.Windows.Forms.Button();
+            this.tbTegund = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ColumnNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReiknisNumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInneign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVextir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReikningur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -90,9 +93,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Aqua;
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.btEydaEinstakling);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.tbBreytaLykilord);
@@ -126,11 +128,11 @@
             // 
             // btEydaEinstakling
             // 
-            this.btEydaEinstakling.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btEydaEinstakling.ForeColor = System.Drawing.Color.Black;
-            this.btEydaEinstakling.Location = new System.Drawing.Point(181, 188);
+            this.btEydaEinstakling.BackColor = System.Drawing.Color.DarkRed;
+            this.btEydaEinstakling.ForeColor = System.Drawing.Color.White;
+            this.btEydaEinstakling.Location = new System.Drawing.Point(6, 208);
             this.btEydaEinstakling.Name = "btEydaEinstakling";
-            this.btEydaEinstakling.Size = new System.Drawing.Size(47, 23);
+            this.btEydaEinstakling.Size = new System.Drawing.Size(248, 23);
             this.btEydaEinstakling.TabIndex = 26;
             this.btEydaEinstakling.Text = "Eyða einstakling";
             this.btEydaEinstakling.UseVisualStyleBackColor = false;
@@ -253,7 +255,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Crimson;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.btRefresh);
             this.groupBox1.Controls.Add(this.tbKyn);
             this.groupBox1.Controls.Add(this.tbLykilord);
@@ -269,12 +271,25 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(881, 75);
+            this.groupBox1.Location = new System.Drawing.Point(930, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 481);
+            this.groupBox1.Size = new System.Drawing.Size(243, 481);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Skráning";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btRefresh
+            // 
+            this.btRefresh.Font = new System.Drawing.Font("Minion Pro Med", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btRefresh.Location = new System.Drawing.Point(6, 447);
+            this.btRefresh.Name = "btRefresh";
+            this.btRefresh.Size = new System.Drawing.Size(248, 28);
+            this.btRefresh.TabIndex = 27;
+            this.btRefresh.Text = "Endurnýja töflur";
+            this.btRefresh.UseVisualStyleBackColor = true;
+            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
             // tbKyn
             // 
@@ -325,9 +340,9 @@
             // btSkraIMedlimatoflu
             // 
             this.btSkraIMedlimatoflu.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btSkraIMedlimatoflu.Location = new System.Drawing.Point(21, 190);
+            this.btSkraIMedlimatoflu.Location = new System.Drawing.Point(30, 190);
             this.btSkraIMedlimatoflu.Name = "btSkraIMedlimatoflu";
-            this.btSkraIMedlimatoflu.Size = new System.Drawing.Size(142, 21);
+            this.btSkraIMedlimatoflu.Size = new System.Drawing.Size(143, 21);
             this.btSkraIMedlimatoflu.TabIndex = 8;
             this.btSkraIMedlimatoflu.Text = "Skráí í meðlimatöflu";
             this.btSkraIMedlimatoflu.UseVisualStyleBackColor = false;
@@ -396,8 +411,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.BlueViolet;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.tbTegund);
+            this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.btBreytaInneign);
+            this.groupBox3.Controls.Add(this.btEydaEinstakling);
             this.groupBox3.Controls.Add(this.tbNafnReikning);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.tbInneign);
@@ -418,7 +436,7 @@
             // btBreytaInneign
             // 
             this.btBreytaInneign.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btBreytaInneign.Location = new System.Drawing.Point(63, 133);
+            this.btBreytaInneign.Location = new System.Drawing.Point(62, 159);
             this.btBreytaInneign.Name = "btBreytaInneign";
             this.btBreytaInneign.Size = new System.Drawing.Size(112, 23);
             this.btBreytaInneign.TabIndex = 26;
@@ -437,7 +455,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(15, 34);
+            this.label20.Location = new System.Drawing.Point(21, 35);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(30, 13);
             this.label20.TabIndex = 25;
@@ -455,7 +473,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(15, 86);
+            this.label15.Location = new System.Drawing.Point(21, 84);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(42, 13);
             this.label15.TabIndex = 17;
@@ -472,7 +490,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(15, 112);
+            this.label14.Location = new System.Drawing.Point(21, 110);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 15;
@@ -483,7 +501,7 @@
             this.btLeitaReiknings.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btLeitaReiknings.Location = new System.Drawing.Point(181, 29);
             this.btLeitaReiknings.Name = "btLeitaReiknings";
-            this.btLeitaReiknings.Size = new System.Drawing.Size(75, 25);
+            this.btLeitaReiknings.Size = new System.Drawing.Size(75, 20);
             this.btLeitaReiknings.TabIndex = 13;
             this.btLeitaReiknings.Text = "Leita";
             this.btLeitaReiknings.UseVisualStyleBackColor = false;
@@ -500,7 +518,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(15, 60);
+            this.label10.Location = new System.Drawing.Point(26, 58);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(23, 13);
             this.label10.TabIndex = 12;
@@ -514,34 +532,15 @@
             this.ColumnNafn,
             this.ColumnReiknisNumer,
             this.ColumnInneign,
-            this.ColumnVextir});
+            this.ColumnVextir,
+            this.ColumnReikningur});
             this.dgReikningar.GridColor = System.Drawing.SystemColors.Control;
-            this.dgReikningar.Location = new System.Drawing.Point(363, 319);
+            this.dgReikningar.Location = new System.Drawing.Point(363, 335);
             this.dgReikningar.Name = "dgReikningar";
-            this.dgReikningar.Size = new System.Drawing.Size(512, 237);
+            this.dgReikningar.Size = new System.Drawing.Size(561, 221);
             this.dgReikningar.TabIndex = 26;
             this.dgReikningar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReikningar_CellContentClick);
             this.dgReikningar.SelectionChanged += new System.EventHandler(this.dgReikningar_SelectionChanged);
-            // 
-            // ColumnNafn
-            // 
-            this.ColumnNafn.HeaderText = "Nafn";
-            this.ColumnNafn.Name = "ColumnNafn";
-            // 
-            // ColumnReiknisNumer
-            // 
-            this.ColumnReiknisNumer.HeaderText = "RN";
-            this.ColumnReiknisNumer.Name = "ColumnReiknisNumer";
-            // 
-            // ColumnInneign
-            // 
-            this.ColumnInneign.HeaderText = "Inneign";
-            this.ColumnInneign.Name = "ColumnInneign";
-            // 
-            // ColumnVextir
-            // 
-            this.ColumnVextir.HeaderText = "Vextir";
-            this.ColumnVextir.Name = "ColumnVextir";
             // 
             // dgNotandi
             // 
@@ -556,7 +555,7 @@
             this.dgNotandi.GridColor = System.Drawing.SystemColors.Control;
             this.dgNotandi.Location = new System.Drawing.Point(363, 75);
             this.dgNotandi.Name = "dgNotandi";
-            this.dgNotandi.Size = new System.Drawing.Size(512, 238);
+            this.dgNotandi.Size = new System.Drawing.Size(561, 238);
             this.dgNotandi.TabIndex = 28;
             this.dgNotandi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgNotandi_CellContentClick);
             this.dgNotandi.SelectionChanged += new System.EventHandler(this.dgNotandi_SelectionChanged);
@@ -586,24 +585,54 @@
             this.ColumnKyn.HeaderText = "Kyn";
             this.ColumnKyn.Name = "ColumnKyn";
             // 
-            // btRefresh
+            // tbTegund
             // 
-            this.btRefresh.Font = new System.Drawing.Font("Minion Pro Med", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btRefresh.ForeColor = System.Drawing.Color.Brown;
-            this.btRefresh.Location = new System.Drawing.Point(6, 447);
-            this.btRefresh.Name = "btRefresh";
-            this.btRefresh.Size = new System.Drawing.Size(248, 28);
-            this.btRefresh.TabIndex = 27;
-            this.btRefresh.Text = "Endurnýja töflur";
-            this.btRefresh.UseVisualStyleBackColor = true;
-            this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
+            this.tbTegund.Location = new System.Drawing.Point(63, 133);
+            this.tbTegund.Name = "tbTegund";
+            this.tbTegund.Size = new System.Drawing.Size(112, 20);
+            this.tbTegund.TabIndex = 27;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(15, 136);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Tegund";
+            // 
+            // ColumnNafn
+            // 
+            this.ColumnNafn.HeaderText = "Nafn";
+            this.ColumnNafn.Name = "ColumnNafn";
+            // 
+            // ColumnReiknisNumer
+            // 
+            this.ColumnReiknisNumer.HeaderText = "RN";
+            this.ColumnReiknisNumer.Name = "ColumnReiknisNumer";
+            // 
+            // ColumnInneign
+            // 
+            this.ColumnInneign.HeaderText = "Inneign";
+            this.ColumnInneign.Name = "ColumnInneign";
+            // 
+            // ColumnVextir
+            // 
+            this.ColumnVextir.HeaderText = "Vextir";
+            this.ColumnVextir.Name = "ColumnVextir";
+            // 
+            // ColumnReikningur
+            // 
+            this.ColumnReikningur.HeaderText = "Tegund";
+            this.ColumnReikningur.Name = "ColumnReikningur";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Brown;
-            this.ClientSize = new System.Drawing.Size(1153, 609);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1204, 609);
             this.Controls.Add(this.dgNotandi);
             this.Controls.Add(this.dgReikningar);
             this.Controls.Add(this.groupBox3);
@@ -666,10 +695,6 @@
         private System.Windows.Forms.TextBox tbReiknings;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgReikningar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNafn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReiknisNumer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInneign;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVextir;
         private System.Windows.Forms.DataGridView dgNotandi;
         private System.Windows.Forms.TextBox tbNafnReikning;
         private System.Windows.Forms.Label label20;
@@ -680,6 +705,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnKyn;
         private System.Windows.Forms.Button btBreytaInneign;
         private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.TextBox tbTegund;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNafn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReiknisNumer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnInneign;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVextir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnReikningur;
     }
 }
 

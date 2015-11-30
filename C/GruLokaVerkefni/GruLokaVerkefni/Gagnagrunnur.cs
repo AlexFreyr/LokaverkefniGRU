@@ -106,6 +106,23 @@ namespace GruLokaVerkefni
                 CloseConnection();
             }
         }
+        public void UppfaeraReikning(string Rn , string Innisteada, string Vextir, string tegund)
+        {
+            if (OpenConnection() == true)
+            {
+                fyrirspurn = "Update Innistaeda set id ='" + Rn + "', Innistaeda='" + Innisteada + "',Vextir='" + Vextir + "' where id ='" + Rn + "'";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                nySQLskipun.ExecuteNonQuery();
+                CloseConnection();
+            }
+            if (OpenConnection() == true)
+            {
+                fyrirspurn = "Update Reikningar set tegund ='" + tegund + "' where id ='" + Rn + "'";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                nySQLskipun.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
 
         public List<string> LesautSQLToflu()
         {
@@ -137,7 +154,7 @@ namespace GruLokaVerkefni
             string lina = null;
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT notandi.nafn,reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id";
+                fyrirspurn = "SELECT notandi.nafn,reikningar.id, innistaeda.innistaeda,innistaeda.vextir, reikningar.tegund FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
 
                 sqllesari = nySQLskipun.ExecuteReader();
