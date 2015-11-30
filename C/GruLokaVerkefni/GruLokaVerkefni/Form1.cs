@@ -165,8 +165,11 @@ namespace GruLokaVerkefni
                     dgNotandi.Rows[talaNotandi].Cells[1].Value = dataNotandi[1];
                     dgNotandi.Rows[talaNotandi].Cells[2].Value = dataNotandi[2];
                     dgNotandi.Rows[talaNotandi].Cells[3].Value = dataNotandi[3];
+                    dgNotandi.Rows[talaNotandi].Cells[4].Value = dataNotandi[4];
+                    
                     this.dgNotandi.ColumnHeadersHeight = 20;
                     talaNotandi++;
+                    
                 }
 
             }
@@ -241,10 +244,10 @@ namespace GruLokaVerkefni
         private void btEydaEinstakling_Click(object sender, EventArgs e)
         {
             
-            string id_medlimur = tbBreytaKennitolu.Text;
+            string Kennitala = tbBreytaKennitolu.Text;
             try
             {
-                gagnagrunnur.Eyda(id_medlimur);
+                gagnagrunnur.Eyda(Kennitala);
             }
             catch (Exception ex)
             {
@@ -290,5 +293,162 @@ namespace GruLokaVerkefni
         {
 
         }
+       
+
+        private void dgNotandi_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgNotandi.SelectedRows.Count <= 0)
+            {
+                return;
+                
+            }
+            else
+            {
+                if (dgNotandi.SelectedRows[0].Cells[0].Value.ToString() != null)
+                {
+                    tbBreytaNafn.Text = dgNotandi.SelectedRows[0].Cells[0].Value.ToString();
+                }
+                if (dgNotandi.SelectedRows[0].Cells[1].Value.ToString() != null)
+                {
+                    tbBreytaLand.Text = dgNotandi.SelectedRows[0].Cells[1].Value.ToString();
+                }
+                if (dgNotandi.SelectedRows[0].Cells[2].Value.ToString() != null)
+                {
+                    tbBreytaNetafng.Text= dgNotandi.SelectedRows[0].Cells[2].Value.ToString();
+                }
+                if (dgNotandi.SelectedRows[0].Cells[3].Value.ToString() != null)
+                {
+                    tbBreytaKennitolu.Text = dgNotandi.SelectedRows[0].Cells[3].Value.ToString();
+                }
+                if (dgNotandi.SelectedRows[0].Cells[4].Value.ToString() != null)
+                {
+                    tbBreytaKyn.Text = dgNotandi.SelectedRows[0].Cells[4].Value.ToString();
+                }
+            }
+          
+            
+        }
+
+        private void dgNotandi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgReikningar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgReikningar.SelectedRows.Count <= 0)
+            {
+                return;
+
+            }
+            else
+            {
+                if (dgReikningar.SelectedRows[0].Cells[0].Value.ToString() != null)
+                {
+                    tbNafnReikning.Text = dgReikningar.SelectedRows[0].Cells[0].Value.ToString();
+                }
+                if (dgReikningar.SelectedRows[0].Cells[1].Value.ToString() != null)
+                {
+                    tbReiknings.Text = dgReikningar.SelectedRows[0].Cells[1].Value.ToString();
+                }
+                if (dgReikningar.SelectedRows[0].Cells[2].Value.ToString() != null)
+                {
+                    tbInneign.Text = dgReikningar.SelectedRows[0].Cells[2].Value.ToString();
+                }
+                if (dgReikningar.SelectedRows[0].Cells[3].Value.ToString() != null)
+                {
+                    tbVextir.Text = dgReikningar.SelectedRows[0].Cells[3].Value.ToString();
+                }
+                
+            }
+        }
+
+        private void btBreytaInneign_Click(object sender, EventArgs e)
+        {
+            string kennitala = tbBreytaKennitolu.Text,
+                  nafn = tbBreytaNafn.Text,
+                  netfang = tbBreytaNetafng.Text,
+                  kyn = tbBreytaKyn.Text,
+                  land = tbBreytaLand.Text,
+                  lykilord = tbBreytaLykilord.Text;
+
+            try
+            {
+                gagnagrunnur.Uppfaera(kennitala, nafn, netfang, kyn, land, lykilord);
+                MessageBox.Show("Upplýsingar voru breyttar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            //Notandi
+
+            List<string> linur = new List<string>();
+            string[] dataNotandi;
+            string lineNotandi = null;
+            int talaNotandi = 0;
+            try
+            {
+
+                linur = gagnagrunnur.LesautSQLToflu();
+                while ((lineNotandi = linur[talaNotandi]) != null)
+                {
+                    dgNotandi.Rows.Add();
+                    dataNotandi = lineNotandi.Split(':');
+                    dgNotandi.Rows[talaNotandi].Cells[0].Value = dataNotandi[0];
+                    dgNotandi.Rows[talaNotandi].Cells[1].Value = dataNotandi[1];
+                    dgNotandi.Rows[talaNotandi].Cells[2].Value = dataNotandi[2];
+                    dgNotandi.Rows[talaNotandi].Cells[3].Value = dataNotandi[3];
+                    dgNotandi.Rows[talaNotandi].Cells[4].Value = dataNotandi[4];
+
+                    this.dgNotandi.ColumnHeadersHeight = 20;
+                    talaNotandi++;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            //Inneingn Datagrid
+            List<string> linurInneign = new List<string>();
+            string[] data;
+            string line = null;
+            int tala = 0;
+            try
+            {
+
+                linurInneign = gagnagrunnur.LesautInneignSQLToflu();
+                while ((line = linurInneign[tala]) != null)
+                {
+
+                    dgReikningar.Rows.Add();
+                    data = line.Split(':');
+                    dgReikningar.Rows[tala].Cells[0].Value = data[0];
+                    dgReikningar.Rows[tala].Cells[1].Value = data[1];
+                    dgReikningar.Rows[tala].Cells[2].Value = data[2];
+                    dgReikningar.Rows[tala].Cells[3].Value = data[3];
+                    this.dgReikningar.ColumnHeadersHeight = 20;
+                    tala++;
+
+
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error " + ex);
+            }
+        }
+
+        
     }
 }

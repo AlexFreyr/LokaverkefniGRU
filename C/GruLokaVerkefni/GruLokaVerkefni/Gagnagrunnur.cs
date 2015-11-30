@@ -89,7 +89,7 @@ namespace GruLokaVerkefni
         {
             if (OpenConnection() == true)
             {
-                fyrirspurn = "Delete FROM notandi where kennitala='" + kt + "'";
+                fyrirspurn = "Delete FROM notandi where Kennitala='" + kt + "'";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
                 nySQLskipun.ExecuteNonQuery();
                 CloseConnection();
@@ -113,7 +113,7 @@ namespace GruLokaVerkefni
             string lina = null;
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT Nafn,Land,netfang,Kennitala FROM notandi";
+                fyrirspurn = "SELECT Nafn,Land,netfang,Kennitala,Kyn FROM notandi";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
 
                 sqllesari = nySQLskipun.ExecuteReader();

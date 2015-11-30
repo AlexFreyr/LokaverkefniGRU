@@ -26,3 +26,12 @@ C:\Users\3108982369\Documents\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVe
 C:\Users\3108982369\Documents\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
 C:\Users\3108982369\Documents\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
 C:\Users\3108982369\Documents\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe.config
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.pdb
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csprojResolveAssemblyReference.cache
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
+\\skra\nem-redirect$\3108982369\Desktop\GitHub\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
