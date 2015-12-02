@@ -51,7 +51,13 @@
                                         die("Þú ert ekki skráð/ur inn");
                                     }
 
-                                    echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    if($_SESSION['kyn'] == "Karlkyns"){
+                                        echo "Skráður inn sem " . $_SESSION['nafn'] . "";
+                                    }elseif($_SESSION['kyn'] == "Kvenkyns"){
+                                        echo "Skráð inn sem " . $_SESSION['nafn'] . "";
+                                    }else{
+                                        echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    }
                                 ?>
                             </a>
                         </li>
@@ -68,35 +74,20 @@
                 <legend>Upplýsingar um nýjann reikning</legend>
                 <div class="pure-g">
                     <fieldset>
-                        <div class="pure-u-1 pure-u-md-1-3">
-                            <label for="first-name">First Name</label>
-                            <input id="first-name" class="pure-u-23-24" type="text">
-                        </div>
-
-                        <div class="pure-u-1 pure-u-md-1-3">
-                            <label for="last-name">Last Name</label>
-                            <input id="last-name" class="pure-u-23-24" type="text">
-                        </div>
-
-                        <div class="pure-u-1 pure-u-md-1-3">
-                            <label for="email">E-Mail</label>
-                            <input id="email" class="pure-u-23-24" type="email" required>
-                        </div>
-
-                        <div class="pure-u-1 pure-u-md-1-3">
-                            <label for="city">City</label>
-                            <input id="city" class="pure-u-23-24" type="text">
-                        </div>
-
-                        <div class="pure-u-1 pure-u-md-1-3">
+                        <div class="pure-u-1 pure-u-md-20-24">
                             <label for="tegund">Tegund reiknings</label>
-                            <select id="tegund" class="pure-input-1">
+                            <select id="tegund" class="pure-u-20-24">
                                 <option>Sparnaðarreikningur</option>
                                 <option>Ávísunarreikningur</option>
                                 <option>Debitkortareikingur</option>
                                 <option>Kreditkortareikingur</option>
                                 <option>Framtíðarreikningur</option>
                             </select>
+                        </div>
+
+                        <div class="pure-u-1 pure-u-md-1-3">
+                            <label for="nafnReiknings">Nafn reiknings</label>
+                            <input id="nafnR" class="pure-u-23-24" type="text">
                         </div>
 
                         <div class="pure-u-1 pure-u-md-1-3">
@@ -111,14 +102,16 @@
                         </div>
 
                         <div class="pure-controls">
-                            <button type="button" class="pure-button pure-button-primary" id="klara-btn">Klára</button>
+                            <button type="button" class="pure-button pure-button-primary" id="stofnareikning-btn">Klára</button>
                         </div>
                     </fieldset>
                 </div>
             </form>
+            <p id="alert-notification"></p>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
+        <script type="text/javascript" src="stofnareikning.js"></script>
         <script type="text/javascript" src="../js/menu.js"></script>
     </body>
 </html>

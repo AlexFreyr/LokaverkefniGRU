@@ -51,7 +51,14 @@
                                         die("Þú ert ekki skráð/ur inn");
                                     }
 
-                                    echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    if($_SESSION['kyn'] == "Karlkyns"){
+                                        echo "Skráður inn sem " . $_SESSION['nafn'] . "";
+                                    }elseif($_SESSION['kyn'] == "Kvenkyns"){
+                                        echo "Skráð inn sem " . $_SESSION['nafn'] . "";
+                                    }else{
+                                        echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    }
+
                                 ?>
                             </a>
                         </li>
@@ -93,6 +100,15 @@
                         }
                     ?>
                 </table>
+            </div>
+
+            <div class="nyrReikningur">
+                <?php
+                    if(isset($_SESSION['tegund'])){
+                        echo "<strong>Nýr " . $_SESSION['tegund'] . " hefur verið stofnaður</strong>";
+                        unset($_SESSION['tegund']);
+                    }
+                ?>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -16,7 +16,17 @@ CREATE TABLE reikningar(
 
 CREATE TABLE innistaeda(
   id INT(5) PRIMARY KEY AUTO_INCREMENT,
-  innistaeda INT(5),
-  vextir DOUBLE
+  innistaeda INT(20),
+  vextir DOUBLE,
   FOREIGN KEY (id) REFERENCES reikningar(id)
+);
+
+CREATE TABLE hreyfingar(
+  id INT(5) PRIMARY KEY AUTO_INCREMENT,
+  id_reikningur INT(5),
+  upphaedBreytt INT(20),
+  innistaedaEftir INT(20),
+  skyring VARCHAR(75),
+  dagsetning DATE,
+  FOREIGN KEY (id_reikningur) REFERENCES reikningar(id)
 );

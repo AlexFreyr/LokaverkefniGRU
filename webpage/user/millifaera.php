@@ -51,7 +51,13 @@
                                         die("Þú ert ekki skráð/ur inn");
                                     }
 
-                                    echo "Skráð/ur inn sem " . $_SESSION['nafn'];
+                                    if($_SESSION['kyn'] == "Karlkyns"){
+                                        echo "Skráður inn sem " . $_SESSION['nafn'] . "";
+                                    }elseif($_SESSION['kyn'] == "Kvenkyns"){
+                                        echo "Skráð inn sem " . $_SESSION['nafn'] . "";
+                                    }else{
+                                        echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    }
                                 ?>
                             </a>
                         </li>

@@ -45,7 +45,15 @@
                             session_start();
 
                             if(isset($_SESSION['nafn'])){
-                                echo '<li class="pure-menu-item"><a href="user/home.php" class="pure-menu-link">Skráð/ur inn sem ' . $_SESSION['nafn'] . '</a></li>';
+                                echo '<li class="pure-menu-item"><a href="user/home.php" class="pure-menu-link">';
+                                    if($_SESSION['kyn'] == "Karlkyns"){
+                                        echo "Skráður inn sem " . $_SESSION['nafn'] . "";
+                                    }elseif($_SESSION['kyn'] == "Kvenkyns"){
+                                        echo "Skráð inn sem " . $_SESSION['nafn'] . "";
+                                    }else{
+                                        echo "Skráð/ur inn sem " . $_SESSION['nafn'] . "";
+                                    }
+                                    echo '</a></li>';
                                 echo '<li class="pure-menu-item"><a href="user/skraut.php" class="pure-menu-link">Útskráning</a></li>';
                             }else{
                                 echo '<li class="pure-menu-item"><a href="#" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>';
