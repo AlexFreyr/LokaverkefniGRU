@@ -292,3 +292,17 @@ table{
 #millifaera-form{
     padding-left: 5px;
 }
+.rncolumn{
+    text-decoration: none;
+    color: #000099;
+}
+.rncolumn:hover{
+    text-decoration: underline;
+    color: #00567d;
+}
+.negative{
+    color: red;
+}
+.positive{
+    color: green;
+}

@@ -9,4 +9,16 @@ $(document).ready(function() {
             $('#rn').text("Rn.");
         }
     }).resize();
+
+
+    $('.rncolumn').click(function(){
+        var userRN = $(this).text();
+        $.ajax({
+            type: "POST",
+            url: "../js/jsajax/rn.php",
+            data: {
+                userRN: userRN
+            }
+        });
+    });
 });

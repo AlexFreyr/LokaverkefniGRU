@@ -70,6 +70,12 @@
         <div class="main">
             <h2 class="middle-style">Stofna reikning</h2>
 
+            <?php
+                if($_SESSION['id'] == 82){
+                    die("<p>Þú getur ekki stofnað reikninga Palli</p>");
+                }
+            ?>
+
             <form class="pure-form pure-form-stacked">
                 <legend>Upplýsingar um nýjann reikning</legend>
                 <div class="pure-g">

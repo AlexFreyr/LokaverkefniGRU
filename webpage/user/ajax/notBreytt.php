@@ -15,7 +15,7 @@
 		while($inner = mysql_fetch_array($query, MYSQL_ASSOC)){
 			if($inner['nInni'] < $_POST['not_up']){
 				echo "Ólögleg heimild: " . $_POST['not_up'] . "kr.";
-			}elseif($_POST['not_up'] <= 0){
+			}elseif($_POST['not_up'] <= 1){
 				echo "Ólögleg upphæð";
 			}elseif($_POST['not_rk'] == $_SESSION['vRn']){
 				echo "Þú getur ekki millifært á þetta reikningsnr.";

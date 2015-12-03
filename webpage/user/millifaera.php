@@ -124,6 +124,7 @@
                                 unset($_SESSION['nUpE']); //Notandi upphæð eftir
                                 unset($_SESSION['vRn']); //viðkomandi reikingsnúmer
                                 unset($_SESSION['nUp']); //notandi upphæð
+                                unset($_SESSION['vKenni']); //viðkomandi kennitala 
                             }
                         ?>
                     </div>

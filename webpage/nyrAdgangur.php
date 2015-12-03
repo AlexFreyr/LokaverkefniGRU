@@ -56,7 +56,7 @@
                                     echo '</a></li>';
                                 echo '<li class="pure-menu-item"><a href="user/skraut.php" class="pure-menu-link">Útskráning</a></li>';
                             }else{
-                                echo '<li class="pure-menu-item"><a href="#" class="pure-menu-link">Nýr aðgangur eða skráðu þig inn</a></li>';
+                                echo '<li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Nýr aðgangur eða skráðu þig inn</a></li>';
                             }
                         ?>
                     </ul>
@@ -140,7 +140,7 @@
 
                         <div class="pure-controls">
                             <label for="cb" class="pure-checkbox">
-                                <input id="cb" type="checkbox"> Ég hef lesið og samþykki skilmála Áríon banka
+                                <input id="cb" type="checkbox"> Ég hef lesið og samþykki <a href="skilmalar.php" target="_blank">skilmála</a> Áríon banka
                             </label> 
 
                             <button type="submit" class="pure-button pure-button-primary" id="signup-submit">Submit</button>

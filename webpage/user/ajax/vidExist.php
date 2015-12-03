@@ -4,7 +4,7 @@
 		require '../../php/dbcon.php';
 
 		$query = mysql_query("
-			SELECT notandi.nafn vNafn, innistaeda.innistaeda vInni FROM notandi
+			SELECT notandi.nafn vNafn, innistaeda.innistaeda vInni, notandi.kennitala vKenn FROM notandi
 			INNER JOIN reikningar ON reikningar.id_notandi = notandi.id
 			INNER JOIN innistaeda ON innistaeda.id = reikningar.id
 			WHERE reikningar.id = ". mysql_real_escape_string($_POST['vid_rn']) . " AND
@@ -19,6 +19,7 @@
 		while($inner = mysql_fetch_array($query, MYSQL_ASSOC)){
 			$_SESSION['vNafn'] = $inner['vNafn'];
 			$_SESSION['vInni'] = $inner['vInni'];
+			$_SESSION['vKenni'] = $inner['vKenn'];
         }
 	}
 ?>

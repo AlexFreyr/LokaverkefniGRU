@@ -33,7 +33,7 @@
             <div class="pure-u-1 pure-u-md-1-5">
                 <div class="pure-menu pure-menu-horizontal custom-can-transform">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a href="#" class="pure-menu-link" id="selected">Reikningar</a></li>
+                        <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Reikningar</a></li>
                         <li class="pure-menu-item"><a href="millifaera.php" class="pure-menu-link">Millifæra</a></li>
                         <li class="pure-menu-item"><a href="stofnareikning.php" class="pure-menu-link">Stofna reikning</a></li>
                     </ul>
@@ -70,43 +70,65 @@
         </div>
 
         <div class="main">
-            <h2 class="middle-style">Þínir reikningar</h2>
+            <h2 class="middle-style">Færslur um reikning <?php echo $_SESSION['rn']; ?></h2>
 
-            <div>
+            <form class="pure-form pure-form-stacked">
+                <legend>Aðgerðir</legend>
+                <div class="pure-g">
+                    <fieldset>
+                        <div class="pure-u-1 pure-u-md-2-3">
+                            <div class="pure-u-1 pure-u-md-1-3">
+                                <label>Breyta nafn reiknings</label>
+                                <input type="text" placeholder="Nýtt nafn"/>
+                            </div>
+                            <div class="pure-controls">
+                                <button type="button" class="pure-button pure-button-primary">Breyta</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+            <div class="pure-form">
+                <legend>Færslur um reikninginn</legend>
                 <table class="pure-table pure-table-bordered" id="n_reikningar">
                     <thead>
                         <tr>
-                            <th id="rn">Reikningsnúmer</th>
-                            <th>Tegund reiknings</th>
-                            <th>Vextir</th>
-                            <th>Innistæða</th>
+                            <th>Dagsetning</th>
+                            <th>Skýring</th>
+                            <th>Tilvísun</th>
+                            <th>Upphæð</th>
+                            <th>Staða eftir hreyfingu</th>
                         </tr>
                     </thead>
                     <?php
-                        $reikningar_user = mysql_query("
-                              SELECT reikningar.id Reikningsnumer, reikningar.tegund ReiknTegund, innistaeda.vextir ReiknVextir, innistaeda.innistaeda ReiknInnistaeda FROM notandi
-                              INNER JOIN reikningar ON reikningar.id_notandi = notandi.id
-                              INNER JOIN innistaeda ON innistaeda.id = reikningar.id
-                              WHERE notandi.id = '" . $_SESSION['id'] . "'
+
+                        $breytingar = mysql_query("
+                              SELECT dagsetning, skyring, tilvisun, upphaedBreytt, innistaedaEftir FROM hreyfingar
+                              WHERE id_reikningur = '" . $_SESSION['rn'] . "'
                               ");
 
-                        while($inner = mysql_fetch_array($reikningar_user, MYSQL_ASSOC)){
+                        while($inner = mysql_fetch_array($breytingar, MYSQL_ASSOC)){
                             echo "<tr>";
-                                echo "<td><a href='hreyfingar.php' class='rncolumn'>" . $inner['Reikningsnumer'] . "</a></td>";
-                                echo "<td>" . $inner['ReiknTegund'] . "</td>";
-                                echo "<td>" . $inner['ReiknVextir'] . "%</td>";
-                                echo "<td>" . $inner['ReiknInnistaeda'] . " kr.</td>";
+                                echo "<td>" . $inner['dagsetning'] . "</td>";
+                                echo "<td>" . $inner['skyring'] . "</td>";
+                                echo "<td>" . $inner['tilvisun'] . "</td>";
+                                if($inner['upphaedBreytt'] < 0){
+                                    echo "<td class='negative'>" . $inner['upphaedBreytt'] ." </td>";
+                                }else{
+                                    echo "<td class='positive'>+" . $inner['upphaedBreytt'] ." </td>";
+                                }
+                                echo "<td>" . $inner['innistaedaEftir'] . " </td>";
                             echo "</tr>";
+                            $_SESSION['data'] = 'data';
                         }
                     ?>
                 </table>
-            </div>
-
-            <div class="nyrReikningur">
                 <?php
-                    if(isset($_SESSION['tegund'])){
-                        echo "<strong>Nýr " . $_SESSION['tegund'] . " hefur verið stofnaður</strong>";
-                        unset($_SESSION['tegund']);
+                    if(!isset($_SESSION['data'])){
+                        echo "<p>Engin gögn til að sýna</p>";
+                    }else{
+                        unset($_SESSION['data']);
                     }
                 ?>
             </div>
