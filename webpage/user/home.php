@@ -95,7 +95,11 @@
                                 echo "<td><a href='hreyfingar.php' class='rncolumn'>" . $inner['Reikningsnumer'] . "</a></td>";
                                 echo "<td>" . $inner['ReiknTegund'] . "</td>";
                                 echo "<td>" . $inner['ReiknVextir'] . "%</td>";
-                                echo "<td>" . $inner['ReiknInnistaeda'] . " kr.</td>";
+                                if($inner['ReiknInnistaeda'] < 0){
+                                    echo "<td class='negative'>" . $inner['ReiknInnistaeda'] ." kr.</td>";
+                                }else{
+                                    echo "<td class='positive'>" . $inner['ReiknInnistaeda'] ." kr.</td>";
+                                }
                             echo "</tr>";
                         }
                     ?>

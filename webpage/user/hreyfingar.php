@@ -89,12 +89,12 @@
                 </div>
             </form>
 
-            <div class="pure-form">
+            <div class="pure-form scrollable">
                 <legend>Færslur um reikninginn</legend>
                 <table class="pure-table pure-table-bordered" id="n_reikningar">
                     <thead>
                         <tr>
-                            <th>Dagsetning</th>
+                            <th id="ndate">Dagsetning</th>
                             <th>Skýring</th>
                             <th>Tilvísun</th>
                             <th>Upphæð</th>
@@ -102,7 +102,6 @@
                         </tr>
                     </thead>
                     <?php
-
                         $breytingar = mysql_query("
                               SELECT dagsetning, skyring, tilvisun, upphaedBreytt, innistaedaEftir FROM hreyfingar
                               WHERE id_reikningur = '" . $_SESSION['rn'] . "'
@@ -110,7 +109,7 @@
 
                         while($inner = mysql_fetch_array($breytingar, MYSQL_ASSOC)){
                             echo "<tr>";
-                                echo "<td>" . $inner['dagsetning'] . "</td>";
+                                echo "<td class='special'>" . $inner['dagsetning'] . "</td>";
                                 echo "<td>" . $inner['skyring'] . "</td>";
                                 echo "<td>" . $inner['tilvisun'] . "</td>";
                                 if($inner['upphaedBreytt'] < 0){
@@ -118,7 +117,12 @@
                                 }else{
                                     echo "<td class='positive'>+" . $inner['upphaedBreytt'] ." </td>";
                                 }
-                                echo "<td>" . $inner['innistaedaEftir'] . " </td>";
+
+                                if($inner['innistaedaEftir'] < 0){
+                                    echo "<td class='negative'>" . $inner['innistaedaEftir'] ." kr.</td>";
+                                }else{
+                                    echo "<td class='positive'>" . $inner['innistaedaEftir'] ." kr.</td>";
+                                }
                             echo "</tr>";
                             $_SESSION['data'] = 'data';
                         }

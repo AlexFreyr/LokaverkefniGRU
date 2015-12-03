@@ -30,7 +30,6 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btEydaEinstakling = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbBreytaLykilord = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbBreytaOgUppfaera = new System.Windows.Forms.Button();
             this.tbBreytaNetafng = new System.Windows.Forms.TextBox();
+            this.btEydaEinstakling = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btRefresh = new System.Windows.Forms.Button();
             this.tbKyn = new System.Windows.Forms.ComboBox();
@@ -60,8 +60,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbTegund = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.btBreytaInneign = new System.Windows.Forms.Button();
-            this.tbNafnReikning = new System.Windows.Forms.TextBox();
+            this.tbKtReikning = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tbInneign = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -71,19 +73,17 @@
             this.tbReiknings = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dgReikningar = new System.Windows.Forms.DataGridView();
+            this.ColumnNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReiknisNumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnInneign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVextir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnReikningur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgNotandi = new System.Windows.Forms.DataGridView();
             this.ColumnNotandiNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiNetfang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNotandiKennitala = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnKyn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbTegund = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.ColumnNafn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReiknisNumer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnInneign = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnVextir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnReikningur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -125,18 +125,6 @@
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "Lykilorð";
-            // 
-            // btEydaEinstakling
-            // 
-            this.btEydaEinstakling.BackColor = System.Drawing.Color.DarkRed;
-            this.btEydaEinstakling.ForeColor = System.Drawing.Color.White;
-            this.btEydaEinstakling.Location = new System.Drawing.Point(6, 208);
-            this.btEydaEinstakling.Name = "btEydaEinstakling";
-            this.btEydaEinstakling.Size = new System.Drawing.Size(248, 23);
-            this.btEydaEinstakling.TabIndex = 26;
-            this.btEydaEinstakling.Text = "Eyða einstakling";
-            this.btEydaEinstakling.UseVisualStyleBackColor = false;
-            this.btEydaEinstakling.Click += new System.EventHandler(this.btEydaEinstakling_Click);
             // 
             // label9
             // 
@@ -252,6 +240,18 @@
             this.tbBreytaNetafng.Name = "tbBreytaNetafng";
             this.tbBreytaNetafng.Size = new System.Drawing.Size(100, 20);
             this.tbBreytaNetafng.TabIndex = 8;
+            // 
+            // btEydaEinstakling
+            // 
+            this.btEydaEinstakling.BackColor = System.Drawing.Color.DarkRed;
+            this.btEydaEinstakling.ForeColor = System.Drawing.Color.White;
+            this.btEydaEinstakling.Location = new System.Drawing.Point(6, 208);
+            this.btEydaEinstakling.Name = "btEydaEinstakling";
+            this.btEydaEinstakling.Size = new System.Drawing.Size(248, 23);
+            this.btEydaEinstakling.TabIndex = 26;
+            this.btEydaEinstakling.Text = "Eyða einstakling";
+            this.btEydaEinstakling.UseVisualStyleBackColor = false;
+            this.btEydaEinstakling.Click += new System.EventHandler(this.btEydaEinstakling_Click);
             // 
             // groupBox1
             // 
@@ -416,7 +416,7 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.btBreytaInneign);
             this.groupBox3.Controls.Add(this.btEydaEinstakling);
-            this.groupBox3.Controls.Add(this.tbNafnReikning);
+            this.groupBox3.Controls.Add(this.tbKtReikning);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.tbInneign);
             this.groupBox3.Controls.Add(this.label15);
@@ -433,6 +433,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Inneign";
             // 
+            // tbTegund
+            // 
+            this.tbTegund.Location = new System.Drawing.Point(63, 133);
+            this.tbTegund.Name = "tbTegund";
+            this.tbTegund.Size = new System.Drawing.Size(112, 20);
+            this.tbTegund.TabIndex = 27;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(15, 136);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 13);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Tegund";
+            // 
             // btBreytaInneign
             // 
             this.btBreytaInneign.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -444,22 +461,22 @@
             this.btBreytaInneign.UseVisualStyleBackColor = false;
             this.btBreytaInneign.Click += new System.EventHandler(this.btBreytaInneign_Click);
             // 
-            // tbNafnReikning
+            // tbKtReikning
             // 
-            this.tbNafnReikning.Location = new System.Drawing.Point(63, 29);
-            this.tbNafnReikning.Name = "tbNafnReikning";
-            this.tbNafnReikning.Size = new System.Drawing.Size(112, 20);
-            this.tbNafnReikning.TabIndex = 24;
+            this.tbKtReikning.Location = new System.Drawing.Point(63, 29);
+            this.tbKtReikning.Name = "tbKtReikning";
+            this.tbKtReikning.Size = new System.Drawing.Size(112, 20);
+            this.tbKtReikning.TabIndex = 24;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(21, 35);
+            this.label20.Location = new System.Drawing.Point(8, 33);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
+            this.label20.Size = new System.Drawing.Size(51, 13);
             this.label20.TabIndex = 25;
-            this.label20.Text = "Nafn";
+            this.label20.Text = "Kennitala";
             // 
             // tbInneign
             // 
@@ -542,6 +559,31 @@
             this.dgReikningar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReikningar_CellContentClick);
             this.dgReikningar.SelectionChanged += new System.EventHandler(this.dgReikningar_SelectionChanged);
             // 
+            // ColumnNafn
+            // 
+            this.ColumnNafn.HeaderText = "Nafn";
+            this.ColumnNafn.Name = "ColumnNafn";
+            // 
+            // ColumnReiknisNumer
+            // 
+            this.ColumnReiknisNumer.HeaderText = "RN";
+            this.ColumnReiknisNumer.Name = "ColumnReiknisNumer";
+            // 
+            // ColumnInneign
+            // 
+            this.ColumnInneign.HeaderText = "Inneign";
+            this.ColumnInneign.Name = "ColumnInneign";
+            // 
+            // ColumnVextir
+            // 
+            this.ColumnVextir.HeaderText = "Vextir";
+            this.ColumnVextir.Name = "ColumnVextir";
+            // 
+            // ColumnReikningur
+            // 
+            this.ColumnReikningur.HeaderText = "Tegund";
+            this.ColumnReikningur.Name = "ColumnReikningur";
+            // 
             // dgNotandi
             // 
             this.dgNotandi.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -585,53 +627,11 @@
             this.ColumnKyn.HeaderText = "Kyn";
             this.ColumnKyn.Name = "ColumnKyn";
             // 
-            // tbTegund
-            // 
-            this.tbTegund.Location = new System.Drawing.Point(63, 133);
-            this.tbTegund.Name = "tbTegund";
-            this.tbTegund.Size = new System.Drawing.Size(112, 20);
-            this.tbTegund.TabIndex = 27;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(15, 136);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(44, 13);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "Tegund";
-            // 
-            // ColumnNafn
-            // 
-            this.ColumnNafn.HeaderText = "Nafn";
-            this.ColumnNafn.Name = "ColumnNafn";
-            // 
-            // ColumnReiknisNumer
-            // 
-            this.ColumnReiknisNumer.HeaderText = "RN";
-            this.ColumnReiknisNumer.Name = "ColumnReiknisNumer";
-            // 
-            // ColumnInneign
-            // 
-            this.ColumnInneign.HeaderText = "Inneign";
-            this.ColumnInneign.Name = "ColumnInneign";
-            // 
-            // ColumnVextir
-            // 
-            this.ColumnVextir.HeaderText = "Vextir";
-            this.ColumnVextir.Name = "ColumnVextir";
-            // 
-            // ColumnReikningur
-            // 
-            this.ColumnReikningur.HeaderText = "Tegund";
-            this.ColumnReikningur.Name = "ColumnReikningur";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1204, 609);
             this.Controls.Add(this.dgNotandi);
             this.Controls.Add(this.dgReikningar);
@@ -696,7 +696,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgReikningar;
         private System.Windows.Forms.DataGridView dgNotandi;
-        private System.Windows.Forms.TextBox tbNafnReikning;
+        private System.Windows.Forms.TextBox tbKtReikning;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiNafn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNotandiLand;

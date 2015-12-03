@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 namespace GruLokaVerkefni
 {
     class Gagnagrunnur
@@ -87,9 +88,81 @@ namespace GruLokaVerkefni
 
         public void Eyda(string kt)
         {
+            string notandi_id = null;
+            List<string> reikningar_id = new List<string>();
             if (OpenConnection() == true)
             {
-                fyrirspurn = "Delete FROM notandi where Kennitala='" + kt + "'";
+                //Ná í id-ið hjá notanda
+                fyrirspurn = "SELECT id FROM notandi WHERE Kennitala='" + kt + "'";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                sqllesari = nySQLskipun.ExecuteReader();
+                while (sqllesari.Read())
+                {
+                    for (int i = 0; i < sqllesari.FieldCount; i++)
+                    {
+                        notandi_id = (sqllesari.GetValue(i).ToString());
+                    }
+                }
+                CloseConnection();
+            }
+
+            if (OpenConnection() == true)
+            {
+                //Ná í alla reikninga sem notandi hefur
+                fyrirspurn = "SELECT id FROM reikningar WHERE id_notandi = '" + notandi_id + "'";
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                sqllesari = nySQLskipun.ExecuteReader();
+                while (sqllesari.Read())
+                {
+                    for (int i = 0; i < sqllesari.FieldCount; i++)
+                    {
+                        reikningar_id.Add((sqllesari.GetValue(i).ToString()));
+                    }
+                }
+                CloseConnection();
+            }
+
+            //Eyða öllum reikningum sem notandi á, öllum hreyfingum á reikningnum hans, og að lokum eyða einstaklingnum
+            if (OpenConnection())
+            {
+                //Eyða öllu úr innistæða sem tengist einstaklingnum
+                string fyrirspurn = null;
+                for (int i = 0; i < reikningar_id.Count; i++)
+                {
+                    fyrirspurn += "DELETE FROM innistaeda WHERE id=" + reikningar_id[i] + ";";
+                }
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                nySQLskipun.ExecuteNonQuery();
+                CloseConnection();
+            }
+            if (OpenConnection())
+            {
+                //Eyða öllu úr hreyfingar sem tengist einstaklingnum
+                string fyrirspurn = null;
+                for (int i = 0; i < reikningar_id.Count; i++)
+                {
+                    fyrirspurn += "DELETE FROM hreyfingar WHERE id_reikningur=" + reikningar_id[i] + ";";
+                }
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                nySQLskipun.ExecuteNonQuery();
+                CloseConnection();
+            }
+            if (OpenConnection())
+            {
+                //Eyða öllu úr reikningar sem tengist einstaklingnum
+                string fyrirspurn = null;
+                for (int i = 0; i < reikningar_id.Count; i++)
+                {
+                    fyrirspurn += "DELETE FROM reikningar WHERE id=" + reikningar_id[i] + ";";
+                }
+                nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
+                nySQLskipun.ExecuteNonQuery();
+                CloseConnection();
+            }
+            if (OpenConnection())
+            {
+                //Eyða einstaklingum
+                string fyrirspurn = "DELETE FROM notandi WHERE kennitala = '" + kt + "'";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
                 nySQLskipun.ExecuteNonQuery();
                 CloseConnection();
@@ -220,12 +293,12 @@ namespace GruLokaVerkefni
             }
             return gogn;
         }
-        public string[] FinnaReikning(string nafn)
+        public string[] FinnaReikning(string kennitala)
         {
             string[] gogn = new string[3];
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id where nafn  ='" + nafn + "'";
+                fyrirspurn = "SELECT reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id where kennitala  ='" + kennitala + "'";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
                 sqllesari = nySQLskipun.ExecuteReader();
                 while (sqllesari.Read())
@@ -243,6 +316,7 @@ namespace GruLokaVerkefni
             }
             return gogn;
         }
+
         //Þessi aðferp lokar tengingu
         private bool CloseConnection()
         {

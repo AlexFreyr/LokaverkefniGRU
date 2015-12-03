@@ -3,10 +3,17 @@ $(document).ready(function() {
     $(window).resize(function() {
         // This will fire each time the window is resized:
         if($(window).width() >= 680) {
-            // if larger or equal
             $('#rn').text("Reikningsnúmer");
         } else {
             $('#rn').text("Rn.");
+        }
+
+        if($(window).width() >= 680){
+            $('#ndate').css("display", "inline");
+            $('.special').css("display", "inline");
+        } else {
+            $('#ndate').css("display", "none");
+            $('.special').css("display", "none");
         }
     }).resize();
 
