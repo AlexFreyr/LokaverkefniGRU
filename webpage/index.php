@@ -3,7 +3,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Lokaverkefni GRU">
-        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
         <title>Lokaverkefni GRU</title>
 
@@ -132,14 +131,14 @@
                                 <td>1.00</td>
                                 <td>1.00</td>
                                 <td>0.00</td>
-                                <td><input type="text" id="isk"/></td>
+                                <td><input type="number" id="isk"/></td>
                             </tr>
                             <tr class="pure-table-odd">
                                 <td>USD</td>
                                 <td>129.37</td>
                                 <td>130.15</td>
                                 <td>-0.02</td>
-                                <td><input type="text" id="usd"/></td>
+                                <td><input type="number" id="usd"/></td>
                             </tr>
                             <tr>
 
@@ -147,21 +146,21 @@
                                 <td>197.34</td>
                                 <td>198.53</td>
                                 <td>-0.90</td>
-                                <td><input type="text" id="gbp"/></td>
+                                <td><input type="number" id="gbp"/></td>
                             </tr>
                             <tr class="pure-table-odd">
                                 <td>EUR</td>
                                 <td>140.48</td>
                                 <td>141.32</td>
                                 <td>0.00</td>
-                                <td><input type="text" id="eur"/></td>
+                                <td><input type="number" id="eur"/></td>
                             </tr>
                             <tr>
                                 <td>JPY</td>
                                 <td>1.06</td>
                                 <td>1.06</td>
                                 <td>-0.23</td>
-                                <td><input type="text" id="jpy"/></td>
+                                <td><input type="number" id="jpy"/></td>
                             </tr>
                         </table>
                         <p id="gengi-note">*Ath. að þetta er <span style="color: red; font-weight: bold">ekki</span> almennt gengið í dag</p>
@@ -172,7 +171,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
         <script type="text/javascript" src="js/menu.js"></script>
-        <script type="text/javascript" src="js/plugins/numeric.js"></script>
         <script type="text/javascript" src="js/gengi.js"></script>
     </body>
 </html>

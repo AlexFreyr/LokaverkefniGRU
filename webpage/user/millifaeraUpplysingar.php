@@ -38,18 +38,8 @@
 		VALUES('$vidkomandiRn', '$lagtInn', '$upphaedEftir', 'Millifærsla', '$vidkomandiKt', CURDATE())
 		");
 
-	function Redirect($url, $permanent = false)
-	{
-	    if (headers_sent() === false)
-	    {
-	    	header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
-	    }
-
-	    exit();
-	}
-
 	unset($_SESSION['vNafn']); //Nafn viðkomanda
 	unset($_SESSION['vInni']); //innistæða viðkomanda
 
-	Redirect('http://tsuts.tskoli.is/2t/2408982179/gru/user/millifaera.php', false);
+	header('Location: http://tsuts.tskoli.is/2t/2408982179/gru/user/millifaera.php', false);
 ?>

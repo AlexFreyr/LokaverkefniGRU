@@ -1,83 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Býr til aðgang...</title>
-    <META charset="utf-8"/>
-</head>
-<body>
-    <?php
+<?php
     include "dbcon.php";
-    try{
-        $kt = $_POST['kennitala'];
-        $nafn = $_POST["nafn"];
-        $netfang = $_POST['netfang'];
-        $kyn = $_POST['kyn'];
-        $land = $_POST['land'];
-        $lykilord = md5($_POST['lykilord']);
-    } catch (Exception $e) {
-         echo "Error fetching: " . $e->getMessage();
+
+    $kt = $_POST['kennitala'];
+    $kt = mysql_real_escape_string($kt);
+
+    $nafn = $_POST["nafn"];
+    $nafn = mysql_real_escape_string($nafn);
+
+    $netfang = $_POST['netfang'];
+    $netfang = mysql_real_escape_string($netfang);
+
+    $kyn = $_POST['kyn'];
+    $kyn = mysql_real_escape_string($kyn);
+
+    $land = $_POST['land'];
+    $land = mysql_real_escape_string($land);
+
+    $lykilord = md5($_POST['lykilord']);
+    $lykilord = mysql_real_escape_string($lykilord);
+
+    //Setur nýjann notanda í notanda töfluna
+    $nyrNotandi = "
+            INSERT INTO notandi(kennitala, nafn, netfang, kyn, land, lykilord)
+            VALUES('$kt', '$nafn', '$netfang', '$kyn', '$land', '$lykilord')";
+
+    mysql_query($nyrNotandi) or die(trigger_error(mysql_error()." in ". $nyrNotandi));
+
+    //Ná í id frá notandanum
+    $notandiId = mysql_query("
+        SELECT id nID FROM notandi WHERE kennitala = '$kt'");
+
+    while($inner = mysql_fetch_array($notandiId, MYSQL_ASSOC)) {
+        $id_notandi = $inner['nID'];
     }
 
-    $sql = 'INSERT INTO notandi(kennitala, nafn, netfang, kyn, land, lykilord)
-            VALUES(:kennitala, :nafn, :netfang, :kyn, :land, :lykilord)';
-    $q = $connection->prepare($sql);
-    try{
-        $q->bindValue(':kennitala', $kt);
-        $q->bindValue(':nafn', $nafn);
-        $q->bindValue(':netfang', $netfang);
-        $q->bindValue(':kyn', $kyn);
-        $q->bindValue(':land', $land);
-        $q->bindValue(':lykilord', $lykilord);
-        $q->execute();
-    } 
-    catch (Exception $e) {
-        echo "Error fetching: " . $e->getMessage();
-    }
+    //Nýr reikingur sem notar id hjá notandanum
+    $nyrReikningur = "
+            INSERT INTO reikningar(id_notandi, tegund)
+            VALUES('$id_notandi', 'Byrjendareikningur')";
 
-    #Setja inn reikningar þegar notandi býr til nýjann aðgang
-    $sql = "SELECT id FROM notandi WHERE kennitala = '$kt'";
+    mysql_query($nyrReikningur) or die(trigger_error(mysql_error()." in ". $nyrReikningur));
 
-    try{
-        $result = $connection->query($sql);
-    } catch(PDOException $ex) {
-        echo "Error fetching record: " . $ex->getMessage();
-    }
-    while($row = $result->fetch()) {
-        $id[] = array($row['id']);
-    }
-    $id_notandi = $id[0][0];
+    //Notandi fær 10000kr inn á þann reikning
+    $nyInnistaeda = "
+        INSERT INTO innistaeda(innistaeda, vextir)
+        VALUES('10000', '0')";
 
-    $sql = 'INSERT INTO reikningar(id_notandi, tegund)
-            VALUES(:id_notandi, :tegund)';
+    mysql_query($nyInnistaeda) or die(trigger_error(mysql_error()." in ". $nyInnistaeda));
 
-    $q = $connection->prepare($sql);
-    try{
-        $q->bindValue(':id_notandi', $id_notandi);
-        $q->bindValue(':tegund', "Byrjendareikningur");
-        $q->execute();
-    } catch (Exception $e){
-        echo "Error inserting: " . $e->getMessage();
-        die();
-    }
-
-    #Gerir einn reikning fyrir notandann, fær 10000kr þegar nýr reikningur er stofnaður
-    $sql = 'INSERT INTO innistaeda(innistaeda, vextir)
-            VALUES(10000, 0)';
-    $q = $connection->prepare($sql);
-    try{
-        $q->execute();
-    } catch (Exception $e){
-        echo "Error inserting: " . $e->getMessage();
-        die();
-    }
-
+    //Býr til nýtt session
     session_start();
 
-    $_SESSION['kennitala'] = $_POST["kennitala"];
-    $_SESSION['lykilord'] = $lykilord = md5($_POST['lykilord']);
+    $_SESSION['kennitala'] = $kt;
+    $_SESSION['lykilord'] = $lykilord;
 
+    //Skráir strax inn
     header('Location: ../user/skrain.php');
     exit;
 ?>
-</body>
-</html>

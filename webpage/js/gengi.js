@@ -8,8 +8,6 @@ $(document).ready(function() {
 		gengi[i] = 1000/getKaup[i].innerHTML;
 		$('#' + country[i]).val((Math.round(gengi[i] * 100)/100).toString());
 	}
-
-	$('input').numeric();
  });
 
 $('input').on('input', function(){

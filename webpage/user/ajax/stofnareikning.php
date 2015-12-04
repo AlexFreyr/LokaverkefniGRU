@@ -15,5 +15,6 @@
 			  VALUES(0, '$vextir')");
 
 	$_SESSION['tegund'] = $tegund;
+	//Skilar success til stofnareikning.js
 	echo "Success";
 ?>

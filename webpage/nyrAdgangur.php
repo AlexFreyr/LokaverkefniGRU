@@ -152,9 +152,8 @@
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" src="signUpAjax.js"></script>
-        <script type="text/javascript" src="signInAjax.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
+        <script type="text/javascript" src="signInAjax.js"></script>
         <script type="text/javascript" src="js/menu.js"></script>
         <script type="text/javascript" src="js/signup.js"></script>
     </body>

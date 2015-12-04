@@ -1,16 +1,6 @@
 <?php
 	session_start();
 
-	function Redirect($url, $permanent = false)
-	{
-	    if (headers_sent() === false)
-	    {
-	    	header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
-	    }
-
-	    exit();
-	}
-
 	require "../php/dbcon.php";
 
 	$query = mysql_query("
@@ -30,5 +20,5 @@
 
 	unset($_SESSION['lykilord']);
 
-	Redirect('http://tsuts.tskoli.is/2t/2408982179/gru/user/home.php', false);
+	header('Location: http://tsuts.tskoli.is/2t/2408982179/gru/user/home.php', false);
 ?>
