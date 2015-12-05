@@ -64,8 +64,28 @@
             </div>
         </div>
 
-        <div class="main">
-            
+        <div class="main pure-g">
+            <div class="pure-u-1-1">
+                <h1>Hafðu samband</h1>
+            </div>
+            <div class="pure-u-1-1 pure-sm-1-1 pure-u-md-1-1 pure-u-lg-1-2">
+                
+                <p>Það er hægt að hafa samband við okkur á ýmsa vegu. </p>
+                
+                <h3>Símanúmer</h3>
+                <p>Þú getur hringt í símann okkar <b> 666 7272 </b>.</p>          
+                <h3>Tövupóstur</h3>
+                <p>Þú getur sent okkur tölvupóst á netfangið ÁríonBanki@gmail.com</p>
+                <h3>Fax</h3>
+                <p>Maður getur líka verið gammaldags og sent okkur Fax </p>
+                <h3>Póstur</h3>
+                <p>Póst númerið okkar er 23463 103 Reykjavík</p>
+                
+
+            </div>
+            <div class="pure-u-1-1 pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-2">
+                <img class="pure-img" src="http://calebstorkey.com/wp-content/uploads/2011/02/Being-Generous-With-Your-Contacts.jpg" >
+            </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <!--Öll scripts fara fyrir neðan þetta comment-->
