@@ -84,7 +84,7 @@
 
             </div>
             <div class="pure-u-1-1 pure-u-sm-1-1 pure-u-md-1-1 pure-u-lg-1-2">
-                <img class="pure-img" src="img/guy.jpg" >
+                <img class="pure-img" src="http://calebstorkey.com/wp-content/uploads/2011/02/Being-Generous-With-Your-Contacts.jpg" >
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
