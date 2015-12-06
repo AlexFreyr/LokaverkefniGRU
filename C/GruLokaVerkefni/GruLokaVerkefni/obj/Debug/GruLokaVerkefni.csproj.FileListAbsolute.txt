@@ -44,3 +44,12 @@ C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkef
 C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
 C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
 C:\Users\Notandi\Desktop\GRU-git\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe.config
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.exe
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.pdb
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.exe
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\bin\Debug\GruLokaVerkefni.pdb
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Form1.resources
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.Properties.Resources.resources
+C:\Users\Michael\Desktop\LokaverkefniGRU\C\GruLokaVerkefni\GruLokaVerkefni\obj\Debug\GruLokaVerkefni.csproj.GenerateResource.Cache

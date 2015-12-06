@@ -227,7 +227,7 @@ namespace GruLokaVerkefni
             string lina = null;
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT notandi.nafn,reikningar.id, innistaeda.innistaeda,innistaeda.vextir, reikningar.tegund FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id";
+                fyrirspurn = "SELECT notandi.kennitala,reikningar.id, innistaeda.innistaeda,innistaeda.vextir, reikningar.tegund FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
 
                 sqllesari = nySQLskipun.ExecuteReader();
@@ -295,10 +295,10 @@ namespace GruLokaVerkefni
         }
         public string[] FinnaReikning(string kennitala)
         {
-            string[] gogn = new string[3];
+            string[] gogn = new string[4];
             if (OpenConnection() == true)
             {
-                fyrirspurn = "SELECT reikningar.id, innistaeda.innistaeda,innistaeda.vextir  FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id where kennitala  ='" + kennitala + "'";
+                fyrirspurn = "SELECT reikningar.id, innistaeda.innistaeda,innistaeda.vextir reikningar.tegund FROM notandi INNER JOIN reikningar ON reikningar.id_notandi = notandi.id INNER JOIN innistaeda ON innistaeda.id = reikningar.id where kennitala  ='" + kennitala + "'";
                 nySQLskipun = new MySqlCommand(fyrirspurn, sqltenging);
                 sqllesari = nySQLskipun.ExecuteReader();
                 while (sqllesari.Read())
@@ -306,6 +306,7 @@ namespace GruLokaVerkefni
                     gogn[0] = sqllesari.GetValue(0).ToString();
                     gogn[1] = sqllesari.GetValue(1).ToString();
                     gogn[2] = sqllesari.GetValue(2).ToString();
+                    gogn[3] = sqllesari.GetValue(3).ToString();
                    
                   
                 }

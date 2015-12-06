@@ -226,7 +226,7 @@ namespace GruLokaVerkefni
         private void btEydaEinstakling_Click(object sender, EventArgs e)
         {
 
-            string Kennitala = tbKtReikning.Text;
+            string Kennitala = tbBreytaKennitolu.Text;
             try
             {
                 gagnagrunnur.Eyda(Kennitala);
@@ -245,13 +245,14 @@ namespace GruLokaVerkefni
         private void btLeitaReiknings_Click(object sender, EventArgs e)
         {
             string Kt = tbKtReikning.Text;
-            string[] gognFraSQL = new string[3];
+            string[] gognFraSQL = new string[4];
             try
             {
                 gognFraSQL = gagnagrunnur.FinnaReikning(Kt);
                 tbReiknings.Text = gognFraSQL[0];
                 tbInneign.Text = gognFraSQL[1];
                 tbVextir.Text = gognFraSQL[2];
+                tbTegund.Text = gognFraSQL[3];
             }
             catch (Exception ex)
             {
